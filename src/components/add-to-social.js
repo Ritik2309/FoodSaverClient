@@ -1,0 +1,113 @@
+import React, { Component } from 'react';
+import axios from "axios";
+import styles from "./styling.module.css"
+import checkLogin from '../utils/checkLogin'
+import RecipeImageBar from "./recipe-image-bar";
+import sleep from '../utils/refresh';
+
+function getDateTime() {
+  var now     = new Date(); 
+  var year    = now.getFullYear();
+  var month   = now.getMonth()+1; 
+  var day     = now.getDate();
+  var hour    = now.getHours();
+  var minute  = now.getMinutes();
+   
+  if(month.toString().length == 1) {
+       month = '0'+month;
+  }
+  if(day.toString().length == 1) {
+       day = '0'+day;
+  }   
+  if(hour.toString().length == 1) {
+       hour = '0'+hour;
+  }
+  if(minute.toString().length == 1) {
+       minute = '0'+minute;
+  }
+   
+  var dateTime = year+'/'+month+'/'+day+' Time: '+hour+':'+minute;   
+   return dateTime;
+}
+
+export default class AddToSocial extends Component {
+  constructor(props) {
+    super(props);
+    if(this.props.image){
+      this.state = {
+        userID: "", 
+        newEntryDate: getDateTime(), 
+        newMessage: "", 
+        imageLink: this.props.image,
+      };
+    }
+    if(!this.props.image){
+      this.state = {
+        userID: "", 
+        newEntryDate: getDateTime(), 
+        newMessage: "", 
+        imageLink: "/images/NO-IMAGE.jpg",
+      };
+    }
+    
+    this.submit = this.submit.bind(this);
+    
+  }
+
+  handlenewMessage(event) {
+    this.setState({newMessage: event.target.value});
+  }
+
+
+  
+  submit(){
+   
+            let token = checkLogin();
+            
+            axios.post('http://localhost:5000/api/getUser/getUserData',{token: token})
+              .then(res => {
+                  const userID = res.data._id
+                  const username = res.data.name;
+                  axios.post("http://localhost:5000/api/Social_posts/add_post", {
+                    userID: userID,
+                    username:username,
+                    newEntryDate:getDateTime().toString(),
+                    newMessage: this.state.newMessage,
+                    imageLink: this.state.imageLink,
+                    replies: []
+                  });
+            });
+            sleep(100);
+            setTimeout(function(){
+              window.location.reload(); //refresh page
+            });
+          
+        }
+    
+
+  render() {
+
+    return (
+        <div class="container-fluid">
+          <div id="alert-placeholder"/>
+
+          <form>
+            <div class="form-group">
+            <div><label htmlFor="exampleFormControlTextarea1">Search for food images to add to post: <RecipeImageBar /> </label></div>
+            
+            <div>
+            <label htmlFor="exampleFormControlTextarea1">Currently selected image: <img class="float-left" className={styles.recipePreviewSize} src={this.state.imageLink}></img></label>
+            </div>
+            
+              <label htmlFor="exampleFormControlTextarea1">Then enter a message to post:</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value={this.setState.newMessage}  onChange={this.handlenewMessage.bind(this)}  >
+              </textarea>
+             
+            </div>
+          </form>
+          <button onClick={this.submit} class="mx-3 btn btn-secondary float-right">Post Message</button>
+          <br />
+        </ div>
+      ); 
+  }
+}
