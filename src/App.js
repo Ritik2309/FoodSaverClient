@@ -15,7 +15,6 @@ import Login from "./components/login";
 import Signup from "./components/signup";
 import Logout from "./components/logout";
 import Settings from "./components/settings";
-
 function App() {
   return (
 
