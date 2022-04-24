@@ -17,11 +17,11 @@ export default class SocialPanelBox extends Component {
     let token = checkLogin();
     if (!(token == null)) {
       
-      axios.post('http://localhost:5000/api/getUser/getUserData',{token: token})
+      axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
         .then(res => {
           console.log(res)
           this.setState({ userID: res.data._id });
-            axios.get("http://localhost:5000/api/Social_posts/load_posts").then(result => {
+            axios.get("https://my-food-saver.herokuapp.com/api/Social_posts/load_posts").then(result => {
               
               this.setState({ posts: result.data});
               console.log(result.data);

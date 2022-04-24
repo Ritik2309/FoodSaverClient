@@ -86,12 +86,12 @@ export default class AddToButton extends Component {
         let token = checkLogin();
         var withinLimit = true;
 
-        await axios.post('http://localhost:5000/api/getUser/getUserData',{token: token})
+        await axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
             .then(res => {
             const calorieLimit = res.data.calorieLimit;
             const userIDcode = res.data._id;
 
-            axios.post("http://localhost:5000/api/load_data/load_today", {comparisonDate: getTodaysDate(), ID: userIDcode})
+            axios.post("https://my-food-saver.herokuapp.com/api/load_data/load_today", {comparisonDate: getTodaysDate(), ID: userIDcode})
                 .then(res => {
                     this.setState({ diet: res.data});
 
@@ -167,10 +167,10 @@ export default class AddToButton extends Component {
                 
                     let token = checkLogin();
                 
-                    axios.post('http://localhost:5000/api/getUser/getUserData',{token: token})
+                    axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
                         .then(res => {
                             const userIDcode = res.data._id;
-                            axios.post("http://localhost:5000/api/load_data/add_meal", {
+                            axios.post("https://my-food-saver.herokuapp.com/api/load_data/add_meal", {
                             name: this.state.food.title,
                             timeEaten: this.state.userInput,
                             nutrients: nutrients,
@@ -191,10 +191,10 @@ export default class AddToButton extends Component {
             console.log(this.state.userInput)
             if(integerCheck(this.state.userInput)){
                 let token = checkLogin();
-                axios.post('http://localhost:5000/api/getUser/getUserData',{token: token})
+                axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
                     .then(res => {
                         const userIDcode = res.data._id;
-                        axios.post("http://localhost:5000/api/load_data/add_food", {
+                        axios.post("https://my-food-saver.herokuapp.com/api/load_data/add_food", {
                         ingredientName: this.state.food.title,
                         expiryDate: getExpiryDate(this.state.userInput),
                         foodType: "Other", 

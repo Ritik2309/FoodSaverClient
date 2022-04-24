@@ -18,10 +18,10 @@ export default class shoppingPlan extends Component {
       if (!(token == null)) {
         this.setState({ loggedIn: true });
 
-        axios.post('http://localhost:5000/api/getUser/getUserData',{token: token})
+        axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
           .then(res => {
               const ID = res.data._id
-              axios.post("http://localhost:5000/api/shopping/load_shopping",{ID: ID})
+              axios.post("https://my-food-saver.herokuapp.com/api/shopping/load_shopping",{ID: ID})
                 .then(res => {
                   //console.log(res.data)
                   this.setState({ shoppingList: res.data});

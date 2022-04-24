@@ -24,7 +24,7 @@ export default class Settings extends Component {
 
   async componentDidMount() {
     let token = checkLogin();
-    if (!(token == null)) {await axios.post('http://localhost:5000/api/getUser/getUserData',{token: token})
+    if (!(token == null)) {await axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
         .then(res => {
             this.setState({userID: res.data._id});
         });
@@ -35,18 +35,18 @@ export default class Settings extends Component {
   }
 
  async deleteUserData(){
-    await axios.post('http://localhost:5000/api/getUser/delete_user_data',{ID: this.state.userID})
+    await axios.post('https://my-food-saver.herokuapp.com/api/getUser/delete_user_data',{ID: this.state.userID})
     .then(this.setState({userDataDeleted: true}));
  }
 
  async deleteUser(){
-    await axios.post('http://localhost:5000/api/getUser/delete_user',{ID: this.state.userID})
+    await axios.post('https://my-food-saver.herokuapp.com/api/getUser/delete_user',{ID: this.state.userID})
     .then(this.setState({userDeleted: true}));
  }
 
  async setCalorieLimit() {
    if(integerCheck(this.state.kcalInput)){
-      await axios.post('http://localhost:5000/api/getUser/change_limit',{ID: this.state.userID, limit: parseInt(this.state.kcalInput)})
+      await axios.post('https://my-food-saver.herokuapp.com/api/getUser/change_limit',{ID: this.state.userID, limit: parseInt(this.state.kcalInput)})
       .then(this.setState({limitChanged: true}));
    }else{
     $('#valid-calories').html("<div class='alert alert-warning' role='alert'>"

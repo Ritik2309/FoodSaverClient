@@ -45,10 +45,10 @@ export default class AddToFridge extends Component {
     if(!(this.state.foodType === "Select food type...")){
       if(integerCheck(this.state.expiryInDays)){
         let token = checkLogin();
-        axios.post('http://localhost:5000/api/getUser/getUserData',{token: token})
+        axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
             .then(res => {
                 const userIDcode = res.data._id;
-                axios.post("http://localhost:5000/api/load_data/add_food", {
+                axios.post("https://my-food-saver.herokuapp.com/api/load_data/add_food", {
                   ingredientName: this.state.ingredientName,
                   expiryDate: getExpiryDate(this.state.expiryInDays),
                   foodType: this.state.foodType, 

@@ -29,10 +29,10 @@ export default class RemoveItem extends Component {
 
   submit(){
             let token = checkLogin();
-            axios.post('http://localhost:5000/api/getUser/getUserData',{token: token})
+            axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
               .then(res =>{
                 this.setState({UserID: res.data._id})
-                axios.post("http://localhost:5000/api/shopping/remove_item", {
+                axios.post("https://my-food-saver.herokuapp.com/api/shopping/remove_item", {
                 itemToRemove: this.state.itemName,
                 ID: this.state.UserID
               

@@ -24,7 +24,7 @@ export default class RemovePost extends Component {
 
     this.submit = this.submit.bind(this);
     let token = checkLogin();
-            axios.post('http://localhost:5000/api/getUser/getUserData',{token: token})
+            axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
               .then(res =>{
                 console.log(res)
                 this.setState({userID: res.data._id})
@@ -35,7 +35,7 @@ export default class RemovePost extends Component {
   submit(){
    
             
-            axios.post("http://localhost:5000/api/Social_posts/remove_post", {
+            axios.post("https://my-food-saver.herokuapp.com/api/Social_posts/remove_post", {
               ID: this.state.post._id
             });
             sleep(100)

@@ -35,7 +35,7 @@ export default class Login extends Component {
           password: this.state.password,
         };// Post request to backend
         
-        axios.post('http://localhost:5000/api/login/', userData)
+        axios.post('https://my-food-saver.herokuapp.com/api/login/', userData)
          .then(res => {
           if (res) {
             setInStorage("x-auth-token", res.data);

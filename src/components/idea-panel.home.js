@@ -22,7 +22,7 @@ export default class MealIdeaPanel extends Component {
   }
   
   componentDidMount() {
-    axios.get("http://localhost:5000/api/load_data/recipes_list").then(res => {
+    axios.get("https://my-food-saver.herokuapp.com/api/load_data/recipes_list").then(res => {
       this.setState({ recipes: res.data});
       this.setState({ isLoading: false });
     });

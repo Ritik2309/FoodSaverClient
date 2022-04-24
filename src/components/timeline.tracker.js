@@ -18,10 +18,10 @@ export default class Timeline extends Component {
     removeMeal(mealToRemove) {
         let token = checkLogin();
         
-        axios.post('http://localhost:5000/api/getUser/getUserData',{token: token})
+        axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
         .then(res => {
             const userIDcode = res.data._id;
-            axios.post("http://localhost:5000/api/load_data/remove_meal", {meal: mealToRemove, ID: userIDcode});
+            axios.post("https://my-food-saver.herokuapp.com/api/load_data/remove_meal", {meal: mealToRemove, ID: userIDcode});
             setTimeout(function(){
             window.location.reload(); //refresh page
             });

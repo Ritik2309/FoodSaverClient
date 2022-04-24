@@ -84,12 +84,12 @@ export default class AddToTracker extends Component {
     let token = checkLogin();
     var withinLimit = true;
 
-    await axios.post('http://localhost:5000/api/getUser/getUserData',{token: token})
+    await axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
       .then(res => {
        const calorieLimit = res.data.calorieLimit;
        const userIDcode = res.data._id;
 
-        axios.post("http://localhost:5000/api/load_data/load_today", {comparisonDate: this.state.dateEaten, ID: userIDcode})
+        axios.post("https://my-food-saver.herokuapp.com/api/load_data/load_today", {comparisonDate: this.state.dateEaten, ID: userIDcode})
             .then(res => {
               this.setState({ diet: res.data});
 
@@ -124,10 +124,10 @@ export default class AddToTracker extends Component {
 
             let token = checkLogin();
 
-            axios.post('http://localhost:5000/api/getUser/getUserData',{token: token})
+            axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
               .then(res => {
                   const userIDcode = res.data._id;
-                  axios.post("http://localhost:5000/api/load_data/add_meal", {
+                  axios.post("https://my-food-saver.herokuapp.com/api/load_data/add_meal", {
                     name: this.state.name,
                     timeEaten: this.state.timeEaten,
                     nutrients: nutrients,

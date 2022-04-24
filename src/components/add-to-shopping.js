@@ -26,10 +26,10 @@ export default class AddToShopping extends Component {
     
             let token = checkLogin();
 
-            axios.post('http://localhost:5000/api/getUser/getUserData',{token: token})
+            axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
               .then(res => {
                   const userIDcode = res.data._id;
-                  axios.post("http://localhost:5000/api/shopping/add_item", {
+                  axios.post("https://my-food-saver.herokuapp.com/api/shopping/add_item", {
                     name: this.state.itemName,
                     ID: userIDcode
                   });

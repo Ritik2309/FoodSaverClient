@@ -36,11 +36,11 @@ export default class MealTracker extends Component {
     if (!(token == null)) {
       this.setState({ loggedIn: true });
 
-      axios.post('http://localhost:5000/api/getUser/getUserData',{token: token})
+      axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
         .then(res => {
             const userIDcode = res.data._id;
             console.log('userIDcode', userIDcode);
-            axios.post('http://localhost:5000/api/load_data/load_today', {comparisonDate: dateForPost, ID: userIDcode})
+            axios.post('https://my-food-saver.herokuapp.com/api/load_data/load_today', {comparisonDate: dateForPost, ID: userIDcode})
             .then(res => {
               //console.log(res);
               this.setState({ diet: res.data});

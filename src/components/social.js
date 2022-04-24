@@ -18,10 +18,10 @@ export default class Social extends Component {
         if (!(token == null)) {
           this.setState({ loggedIn: true });
 
-          axios.post('http://localhost:5000/api/getUser/getUserData',{token: token})
+          axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
             .then(res => {
                 
-                axios.get("http://localhost:5000/api/Social_posts/load_posts").then(res => {
+                axios.get("https://my-food-saver.herokuapp.com/api/Social_posts/load_posts").then(res => {
                   
                   this.setState({ posts: res.data});
                   

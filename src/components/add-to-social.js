@@ -64,11 +64,11 @@ export default class AddToSocial extends Component {
    
             let token = checkLogin();
             
-            axios.post('http://localhost:5000/api/getUser/getUserData',{token: token})
+            axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
               .then(res => {
                   const userID = res.data._id
                   const username = res.data.name;
-                  axios.post("http://localhost:5000/api/Social_posts/add_post", {
+                  axios.post("https://my-food-saver.herokuapp.com/api/Social_posts/add_post", {
                     userID: userID,
                     username:username,
                     newEntryDate:getDateTime().toString(),

@@ -65,11 +65,11 @@ export default class ReplyToPost extends Component {
    
             let token = checkLogin();
 
-            axios.post('http://localhost:5000/api/getUser/getUserData',{token: token})
+            axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
               .then(res => {
                   
                   const username = res.data.name;
-                  axios.post("http://localhost:5000/api/Social_posts/add_reply", {
+                  axios.post("https://my-food-saver.herokuapp.com/api/Social_posts/add_reply", {
                     
                     postID: this.state.postID,
                     reply: {

@@ -51,7 +51,7 @@ export default class signup extends Component {
             calorieLimit: 2500
           };
       
-          axios.post('http://localhost:5000/api/signup/add', user)
+          axios.post('https://my-food-saver.herokuapp.com/api/signup/add', user)
             .then(res => console.log(res.data));
 
           $('#alert-placeholder').html("<div class='alert alert-success' role='alert'>"

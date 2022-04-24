@@ -25,7 +25,7 @@ function App() {
 
     <Frame />
 
-    <Route path="/home" component={Home}/>
+    <Route path="/" component={Home}/>
     <Route path="/fridge" component={Fridge}/>
     <Route path="/tracker" component={MealTracker}/>
     <Route path="/recipes" component={Recipes}/>
