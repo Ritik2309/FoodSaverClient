@@ -80,9 +80,9 @@ export default class ReplyToPost extends Component {
                   }) .then(res => {console.log(res)});
             });
             sleep(100)
-            setTimeout(function(){
-              window.location.reload(); //refresh page
-            });
+            // setTimeout(function(){
+            //   window.location.reload(); //refresh page
+            // });
         }
     
 

@@ -55,9 +55,9 @@ export default class AddToFridge extends Component {
                   ID: userIDcode
                 });
             });
-        setTimeout(function(){
-          window.location.reload(); //refresh page
-        });
+        // setTimeout(function(){
+        //   window.location.reload(); //refresh page
+        // });
       }else{
         $('#alert-placeholder').html("<div class='alert alert-danger' role='alert'>"
         + "Expiry in days in must be an integer value!");

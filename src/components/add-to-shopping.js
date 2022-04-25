@@ -35,9 +35,9 @@ export default class AddToShopping extends Component {
                   });
             });
             refresh(100)
-            setTimeout(function(){
-              window.location.reload(); //refresh page
-            });
+            // setTimeout(function(){
+            //   window.location.reload(); //refresh page
+            // });
   }  
 
   render() {

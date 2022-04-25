@@ -56,9 +56,9 @@ export default class MealTracker extends Component {
   
   handleTodayClick(){
     if(dateCheck(this.state.todaysDate)){
-      setTimeout(function(){
-        window.location.reload(); // to refresh page
-      });
+      // setTimeout(function(){
+      //   window.location.reload(); // to refresh page
+      // });
 
     }else if(!(dateCheck(this.state.todaysDate))){
       $('#alert-placeholder2').html("<div class='alert alert-danger' role='alert'>"
@@ -67,9 +67,9 @@ export default class MealTracker extends Component {
   }
   handleGoClick(){
     if(dateCheck(this.state.userDate)){
-      setTimeout(function(){
-        window.location.reload(); // to refresh page
-      });
+      // setTimeout(function(){
+      //   window.location.reload(); // to refresh page
+      // });
 
     }else if(!(dateCheck(this.state.userDate))){
       $('#alert-placeholder2').html("<div class='alert alert-danger' role='alert'>"

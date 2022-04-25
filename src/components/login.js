@@ -45,9 +45,9 @@ export default class Login extends Component {
                email: "logged in"
               });
 
-            setTimeout(function(){
-              window.location.reload(); //to refresh page
-            });
+            // setTimeout(function(){
+            //   window.location.reload(); //to refresh page
+            // });
             }
             else{
              this.setState({
