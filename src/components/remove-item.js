@@ -40,10 +40,8 @@ export default class RemoveItem extends Component {
                 
               })
             
-            sleep(200)
-            setTimeout(function(){
-              window.location.reload(); //refresh page
-            });
+            sleep(200);
+            <Link to="/shoppingPlanning"></Link>
         }
     
 
