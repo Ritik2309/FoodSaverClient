@@ -35,9 +35,9 @@ export default class FoodCollection extends Component {
         .then(res => {
             const userIDcode = res.data._id;
             axios.post("https://my-food-saver.herokuapp.com/api/load_data/remove_food", {food: foodToRemove, ID: userIDcode});
-            // setTimeout(function(){
-            //   window.location.reload(); //refresh page
-            // });
+            setTimeout(function(){
+              window.location.reload(); //refresh page
+            });
         });
   }
 

@@ -136,9 +136,9 @@ export default class AddToTracker extends Component {
                   });
             });
             sleep(200)
-            // setTimeout(function(){
-            //   window.location.reload(); //refresh page
-            // });
+            setTimeout(function(){
+              window.location.reload(); //refresh page
+            });
           }else{
             $('#alert-placeholder').html("<div class='alert alert-warning' role='alert'>"
                 + "Time needs to be in 24h format!</div>");

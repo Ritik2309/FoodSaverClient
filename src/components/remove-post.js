@@ -39,9 +39,9 @@ export default class RemovePost extends Component {
               ID: this.state.post._id
             });
             sleep(100)
-            // setTimeout(function(){
-            //   window.location.reload(); //refresh page
-            // });
+            setTimeout(function(){
+              window.location.reload(); //refresh page
+            });
         }
     
 

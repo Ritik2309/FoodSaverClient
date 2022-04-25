@@ -179,9 +179,9 @@ export default class AddToButton extends Component {
                             }); 
                     });
 
-                    // setTimeout(function(){
-                    //     window.location.reload(); //refresh page
-                    // });
+                    setTimeout(function(){
+                        window.location.reload(); //refresh page
+                    });
                 }else{
                     $('#alert-placeholder2').html("<div class='alert alert-danger' role='alert'>"
                     + "Time must be in format HH:MM (24h clock)!");
@@ -201,9 +201,9 @@ export default class AddToButton extends Component {
                         ID: userIDcode,
                         });
                     });
-                // setTimeout(function(){
-                //     window.location.reload(); //to refresh page
-                // });
+                setTimeout(function(){
+                    window.location.reload(); //to refresh page
+                });
             }else{
                 $('#alert-placeholder2').html("<div class='alert alert-danger' role='alert'>"
                     + "Days till expiry must be an integer!");
