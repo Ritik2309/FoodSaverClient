@@ -7,11 +7,29 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+
+import Home from "./components/home";
+import Fridge from "./components/fridge";
+import BMI from "./components/bmi";
+import MealTracker from "./components/meal-tracker";
+import Recipes from "./components/recipes";
+import RecipeSearch from "./components/recipe-search";
+import ImageSearch from "./components/image-search";
+import RecipeGuide from "./components/recipe-guide";
+import Social from "./components/social";
+import shoppingPlan from "./components/shoppingPlanning";
+import Login from "./components/login";
+import Signup from "./components/signup";
+import Logout from "./components/logout";
+import Settings from "./components/settings";
+
 ReactDOM.render(
   <React.StrictMode>
     
     <App />
-    
+
 <Router>
 
 <Route path="/home" component={Home}/>
