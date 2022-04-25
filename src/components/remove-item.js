@@ -3,6 +3,7 @@ import axios from "axios";
 import $, { post } from 'jquery';
 import {integerCheck, tfTimeCheck} from "../utils/validation";
 import checkLogin from '../utils/checkLogin'
+import { Link } from 'react-router-dom';
 
 function sleep(milliseconds) {
   var start = new Date().getTime();
