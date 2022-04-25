@@ -80,7 +80,7 @@ export default class Fridge extends Component {
               </div>
             </div>
           </div>
-
+          <br />
           <FoodCollection foods={this.state.Meats}/>
 
           <br />
