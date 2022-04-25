@@ -34,11 +34,11 @@ export default class Frame extends Component {
       }
     }
 
-    // refresh(){
-    //   setTimeout(function(){
-    //     window.location.reload(); //to refresh page
-    //   });
-    // }
+    refresh(){
+      setTimeout(function(){
+        window.location.reload(); //to refresh page
+      });
+    }
 
     render() {
     const loggedIn = this.state.loggedIn;
