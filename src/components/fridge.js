@@ -58,12 +58,15 @@ export default class Fridge extends Component {
     
     return (
         <div class="container-fluid"> 
+        <button type="button" class="mx-3 btn btn-secondary float-right" data-toggle="modal" data-target="#addFoodModal">
+            Add food
+          </button>
+
+          <br />
 
           <h2>Meat</h2>
 
-          <button type="button" class="mx-3 btn btn-secondary float-right" data-toggle="modal" data-target="#addFoodModal">
-            Add food
-          </button>
+          
           
           <div class="modal fade" id="addFoodModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -80,7 +83,7 @@ export default class Fridge extends Component {
               </div>
             </div>
           </div>
-          <br />
+          
           <FoodCollection foods={this.state.Meats}/>
 
           <br />
