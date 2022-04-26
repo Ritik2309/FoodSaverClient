@@ -93,10 +93,8 @@ export default class AddToSocial extends Component {
 
           <form>
             <div class="form-group">
-            <div><label htmlFor="exampleFormControlTextarea1">Search for food images to add to post: <RecipeImageBar /> 
+            <div><label htmlFor="exampleFormControlTextarea1">Search for food images to add to post: <RecipeImageBar /></label><label htmlFor="exampleFormControlTextarea1">Currently selected image: <img class="float-left" className={styles.recipePreviewSize} src={this.state.imageLink}></img></label><div>
             
-            </label><div>
-            <label htmlFor="exampleFormControlTextarea1">Currently selected image: <img class="float-left" className={styles.recipePreviewSize} src={this.state.imageLink}></img></label>
             </div></div>
             
            
