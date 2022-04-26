@@ -42,8 +42,8 @@ export default class SocialPanelBox extends Component {
     return (     
         <div class="card">
                 <img src={post.socialPost.imageLink} width={400} height={400} class="card-img-top"/>
-                <h5 class="card-title"> {post.socialPost.username} {post.socialPost.entryDate} </h5>
-                <p className={styles.smallerPText} >Post: <p class="card-text">{post.socialPost.postMessage}</p></p>
+                <h5 class=" card-text"> {post.socialPost.username} {post.socialPost.entryDate} </h5>
+                <p className={styles.smallerPText} >Post: <p class="card-title">{post.socialPost.postMessage}</p></p>
                 <ReplyToPost reply={post}/>
                 <br></br>
                 <RemovePost post={post}/>
