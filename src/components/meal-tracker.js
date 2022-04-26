@@ -130,7 +130,7 @@ export default class MealTracker extends Component {
         <div class="container-fluid">
             <h5 class="text-muted">Meal Timeline</h5>
 
-            <button type="button" class="mx-3 btn btn-secondary float-right" data-toggle="modal" data-target="#addMealModal">
+            <button type="button" class="mx-3 btn btn-success float-right" data-toggle="modal" data-target="#addMealModal">
             Add meal
             </button>
             
