@@ -63,7 +63,7 @@ export default class Login extends Component {
       render() {
         return (
         <>
-          <button type="button" class="mx-1 btn btn-secondary float-right" data-toggle="modal" data-target="#loginModal">
+          <button type="button" class="mx-1 btn btn-primary float-right" data-toggle="modal" data-target="#loginModal">
             {this.state.buttonText}
           </button>
 
