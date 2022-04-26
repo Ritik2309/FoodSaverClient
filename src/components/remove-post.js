@@ -50,7 +50,7 @@ export default class RemovePost extends Component {
       return (
         <div class="container-fluid">
           <div id="alert-placeholder"/>
-          <button onClick={this.submit} class="mx-3 btn btn-secondary float-right">Remove Post</button>
+          <button onClick={this.submit} class="mx-3 btn btn-danger float-right">Remove Post</button>
           <br />
         </ div>
       ); 
