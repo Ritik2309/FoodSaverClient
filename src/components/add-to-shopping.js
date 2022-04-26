@@ -53,7 +53,7 @@ export default class AddToShopping extends Component {
               value={this.state.name} onChange={this.handleNameChange.bind(this)}/>
             </div> 
           </form>
-          <button onClick={this.submit} class="mx-3 btn btn-secondary float-right">Add</button>
+          <button onClick={this.submit} class="mx-3 btn btn-success float-right">Add</button>
           <br />
         </ div>
       ); 

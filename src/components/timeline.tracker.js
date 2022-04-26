@@ -56,7 +56,7 @@ export default class Timeline extends Component {
                         {foodsEaten.map(food => {return <>
                         <div class="col-3"> 
                             <dt class="list-group-item">{food.name}
-                            <button onClick={() => this.removeMeal(food)} type="button" class="my-1 btn btn-secondary float-right">Remove</button>
+                            <button onClick={() => this.removeMeal(food)} type="button" class="my-1 btn btn-danger float-right">Remove</button>
                             </dt>
                             <dd class="list-group-item">Time eaten: {food.timeEaten}
                             {(food.nutrients.calories !== undefined) &&
