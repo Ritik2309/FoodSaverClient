@@ -13,7 +13,7 @@ export default class ReplyPanelBox extends Component {
         
             <div class="card-body">
                 <h5 class="card-title"> {reply.username} {reply.entryDate} </h5>
-                <p className={styles.smallerPText} >Reply Message: {reply.replyMessage}</p>
+                <p >Reply Message: {reply.replyMessage}</p>
                 <br></br>
                 
             </div>
