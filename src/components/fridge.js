@@ -58,6 +58,8 @@ export default class Fridge extends Component {
     
     return (
         <div class="container-fluid"> 
+        <br />
+        <br />
         <button type="button" class="mx-3 btn btn-success float-right" data-toggle="modal" data-target="#addFoodModal">
             Add food
           </button>
