@@ -15,7 +15,7 @@ export default class GetRecipeButton extends Component {
                 pathname: "/recipe_guide",
                 state: recipe
                 }}>
-                <button className={styles.getRecipeButton}>Get recipe!</button> 
+                <button class="btn btn-outline-success">Get recipe!</button> 
                 </Link>
             </div>
     );
