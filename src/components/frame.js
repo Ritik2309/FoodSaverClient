@@ -55,7 +55,7 @@ export default class Frame extends Component {
             <Login buttonText={"Login"}/>
 
             <Link to="/signup">
-            <button type="button"  class="btn btn-primary btn-lg">Sign Up</button>
+            <button type="button" class="mx-1 btn btn-primary float-right">Sign Up</button>
             </Link>
           </>
           }
@@ -65,13 +65,13 @@ export default class Frame extends Component {
           
           {(loggedIn === true) &&
           <Link to="/logout">
-          <button onClick={this.refresh} type="button"  class="btn btn-primary btn-lg">Logout</button>
+          <button onClick={this.refresh} type="button" class="mx-1 btn btn-primary float-right">Logout</button>
           </Link>
           }
 
           {(loggedIn === true) &&
           <Link to="/settings">
-          <button type="button"  class="btn btn-primary btn-lg">Settings</button>
+          <button type="button" class="mx-1 btn btn-primary float-right">Settings</button>
           </Link>
           }
           {(loggedIn !== true) &&
@@ -79,7 +79,7 @@ export default class Frame extends Component {
           }
 
           <Link to="/bmi">
-          <button type="button"  class="btn btn-primary btn-lg">BMI Calculator</button>
+          <button type="button" class="mx-1 btn btn-primary float-right">BMI Calculator</button>
           </Link>
 
           {(loggedIn === true) &&
@@ -87,7 +87,7 @@ export default class Frame extends Component {
             pathname: "/tracker",
             state: currentDate,
               }}>
-          <button type="button"  class="btn btn-primary btn-lg">Meal Tracker</button>
+          <button type="button" class="mx-1 btn btn-primary float-right">Meal Tracker</button>
           </Link>
           }
           {(loggedIn !== true) &&
@@ -95,12 +95,12 @@ export default class Frame extends Component {
           }
 
           <Link to="/recipes">
-          <button type="button"  class="btn btn-primary btn-lg">Recipes</button>
+          <button type="button" class="mx-1 btn btn-primary float-right">Recipes</button>
           </Link>
 
           {(loggedIn === true) &&
           <Link to="/fridge">
-          <button type="button"  class="btn btn-primary btn-lg">My Fridge</button>
+          <button type="button" class="mx-1 btn btn-primary float-right">My Fridge</button>
           </Link>
           }
           {(loggedIn !== true) &&
@@ -109,7 +109,7 @@ export default class Frame extends Component {
 
           {(loggedIn === true) &&
           <Link to="/shoppingPlanning">
-          <button type="button"  class="btn btn-primary btn-lg">Shopping List</button>
+          <button type="button" class="mx-1 btn btn-primary float-right">Shopping List</button>
           </Link>
           }
           {(loggedIn !== true) &&
@@ -118,7 +118,7 @@ export default class Frame extends Component {
 
           {(loggedIn === true) &&
           <Link to="/social">
-          <button type="button"  class="btn btn-primary btn-lg">Social Sharing</button>
+          <button type="button" class="mx-1 btn btn-primary float-right">Social Sharing</button>
           </Link>
           }
           {(loggedIn !== true) &&
@@ -126,7 +126,7 @@ export default class Frame extends Component {
           }
 
           <Link to="/home">
-          <button type="button"  class="btn btn-primary btn-lg">Home</button>
+          <button type="button" class="mx-1 btn btn-primary float-right">Home</button>
           </Link>
 
           </h1>
