@@ -106,7 +106,7 @@ export default class Login extends Component {
                 <br/>
 
                 <div className="form-group">
-                  <input type="submit" value="Login" className="btn btn-dark btn-block" />
+                  <input type="submit" value="Login" className="btn btn-success btn-block" />
                 </div>
 
                 </form>
