@@ -105,7 +105,7 @@ export default class AddToSocial extends Component {
              
             </div>
           </form>
-          <button onClick={this.submit} class="mx-3 btn btn-secondary float-right">Post Message</button>
+          <button onClick={this.submit} class="mx-3 btn btn-primary float-right">Post Message</button>
           <br />
         </ div>
       ); 

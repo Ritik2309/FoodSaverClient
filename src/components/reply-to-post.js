@@ -99,7 +99,7 @@ export default class ReplyToPost extends Component {
               </textarea>
             </div>
           </form>
-          <button onClick={this.submit} class="mx-3 btn btn-secondary float-right">Reply</button>
+          <button onClick={this.submit} class="mx-3 btn btn-success float-right">Reply</button>
           <br />
         </ div>
       ); 

@@ -50,7 +50,7 @@ export default class FoodCollection extends Component {
                         {foods.map((food, index) => {
                         return <div class="col"> 
                             <dt class="list-group-item">{food.ingredientName}
-                            <button onClick={() => this.removeFood(food)} type="button" class="my-1 btn btn-secondary float-right">Remove</button>
+                            <button onClick={() => this.removeFood(food)} type="button" class="my-1 btn btn-danger float-right">Remove</button>
                             </dt>
                             <dd class="list-group-item">Days left: {getDaysTillExpiry(food)}
                             {((getDaysTillExpiry(food) <= 3) && (getDaysTillExpiry(food) > 0)) && //if < 3 days till expiry

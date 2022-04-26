@@ -52,7 +52,7 @@ export default class RemoveItem extends Component {
       return (
         <div class="container-fluid">
           <div id="alert-placeholder"/>
-          <button onClick={this.submit} class="mx-3 btn btn-secondary float-right">Remove Item</button>
+          <button onClick={this.submit} class="mx-3 btn btn-danger float-right">Remove Item</button>
           <br />
         </ div>
       ); 
