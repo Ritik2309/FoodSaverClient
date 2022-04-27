@@ -5,11 +5,11 @@ import {Map, InfoWindow, Marker , GoogleApiWrapper} from 'google-maps-react';
 export class MapContainer extends Component {
   render() {
     return (
-        <Map google={this.props.google} zoom= {10}>
-            <Marker onClick={this.onMarkerClick} name={'Current Location'}/>
+        <Map google={this.props.google} zoom= {10} initialCenter ={{lat:43.071754,lng:-70.762550}}>
+            <Marker onClick={this.onMarkerClick} name={'Portsmouth'}/>
             <InfoWindow on CLose={this.onInfoWindowClosr}>
             <div>
-                <h1>{this.state.selectedPlace.name}</h1>
+                
             </div>
             </InfoWindow>
         </Map>
