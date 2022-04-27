@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import {Map, InfoWindow, Marker , GoogleApiWrapper} from 'gooogle-maps-react';
+import {Map, InfoWindow, Marker , GoogleApiWrapper} from 'google-maps-react';
 
 export class MapContainer extends Component {
   render() {
