@@ -11,10 +11,13 @@ import ImageSearch from "./components/image-search";
 import RecipeGuide from "./components/recipe-guide";
 import Social from "./components/social";
 import shoppingPlan from "./components/shoppingPlanning";
+import googleMaps from "./components/google-maps";
 import Login from "./components/login";
 import Signup from "./components/signup";
 import Logout from "./components/logout";
 import Settings from "./components/settings";
+
+
 function App() {
   return (
 
@@ -38,6 +41,7 @@ function App() {
     <Route path="/signup" component={Signup}/>
     <Route path="/logout" component={Logout}/>
     <Route path="/settings" component={Settings}/>
+    <Route path="/maps" component={googleMaps}/>
     </Router>
     <br />
     <br />
