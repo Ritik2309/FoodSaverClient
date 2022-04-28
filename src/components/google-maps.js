@@ -239,18 +239,7 @@ class MapContainer extends Component {
                         </MarkerWithLabel> */}
 
 
-                        {/* For Auto complete Search Box */}
-                        <Autocomplete
-                            style={{
-                                width: '100%',
-                                height: '40px',
-                                paddingLeft: '16px',
-                                marginTop: '2px',
-                                marginBottom: '2rem'
-                            }}
-                            onPlaceSelected={this.onPlaceSelected}
-                            types={['(regions)']}
-                        />
+                  
                     </GoogleMap>
                 )
             )
