@@ -3,11 +3,12 @@ import { withGoogleMap, GoogleMap, withScriptjs, InfoWindow, Marker } from "reac
 import Geocode from "react-geocode";
 import Autocomplete from 'react-google-autocomplete';
 import { Descriptions } from 'antd';
+import axios from 'axios';
 
 //const { MarkerWithLabel } = require("react-google-maps");
 
 
-Geocode.setApiKey("AIzaSyComBmJ8e0gvK84jLDBkfAkczHqQXivuRA");
+Geocode.setApiKey(axios.get("https://my-food-saver.herokuapp.com/api/googleAPI"));
 Geocode.enableDebug();
 
 class MapContainer extends Component {
@@ -71,20 +72,6 @@ class MapContainer extends Component {
             console.error("Geolocation is not supported by this browser!");
         }
     };
-
-    // shouldComponentUpdate(nextProps, nextState, nextContext) {
-    //     if (
-    //         this.state.markerPosition.lat !== this.state.center.lat ||
-    //         this.state.address !== nextState.address ||
-    //         this.state.city !== nextState.city ||
-    //         this.state.area !== nextState.area ||
-    //         this.state.state !== nextState.state
-    //     ) {
-    //         return true
-    //     } else if (this.state.mapPosition.lat === nextState.mapPosition.lat) {
-    //         return false
-    //     }
-    // }
 
     getCity = (addressArray) => {
         let city = '';
@@ -190,18 +177,6 @@ class MapContainer extends Component {
         })
     };
 
-    // const AsyncMap = compose(
-    //     withProps({
-    //         googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyALVjLwOIM1gf7EzdJJVmWLKdLP-yZGTcw&v=3.exp&libraries=geometry,drawing,places",
-    //         loadingElement: <div style={{ height: `100%` }} />,
-    //         containerElement: <div style={{ height: `400px` }} />,
-    //         mapElement: <div style={{ height: `100%` }} />,
-    //     }),
-    //     withScriptjs,
-    //     withGoogleMap
-    // )((props) =>
-    //     <GoogleMap
-
     render() {
         const AsyncMap = withScriptjs(
             withGoogleMap(
@@ -229,14 +204,6 @@ class MapContainer extends Component {
                             </div>
                         </InfoWindow>
                         <Marker />
-
-                        {/* <MarkerWithLabel
-                            position={{ lat: -34.397, lng: 150.644 }}
-                            labelAnchor={new google.maps.Point(0, 0)}
-                            labelStyle={{ backgroundColor: "yellow", fontSize: "32px", padding: "16px" }}
-                        >
-                            <div>Hello There!</div>
-                        </MarkerWithLabel> */}
                         <Autocomplete
                             style={{
                                 width: '100%',
@@ -249,8 +216,6 @@ class MapContainer extends Component {
                             types={['(regions)']}
                         />
 
-
-                  
                     </GoogleMap>
                 )
             )
@@ -258,7 +223,7 @@ class MapContainer extends Component {
 
         return (
             <div style={{ padding: '1rem', margin: '0 auto', maxWidth: 1000 }}>
-                <h1>Google Map Basic</h1>
+                <h1>Google Map Meetup Location Selection</h1>
                 <Descriptions bordered>
                     <Descriptions.Item label="City">{this.state.city}</Descriptions.Item>
                     <Descriptions.Item label="Area">{this.state.area}</Descriptions.Item>
