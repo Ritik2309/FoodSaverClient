@@ -237,6 +237,17 @@ class MapContainer extends Component {
                         >
                             <div>Hello There!</div>
                         </MarkerWithLabel> */}
+                        <Autocomplete
+                            style={{
+                                width: '100%',
+                                height: '40px',
+                                paddingLeft: '16px',
+                                marginTop: '2px',
+                                marginBottom: '2rem'
+                            }}
+                            onPlaceSelected={this.onPlaceSelected}
+                            types={['(regions)']}
+                        />
 
 
                   
