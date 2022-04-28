@@ -4,10 +4,7 @@ import Geocode from "react-geocode";
 import Autocomplete from 'react-google-autocomplete';
 import { Descriptions } from 'antd';
 
-const { MarkerWithLabel } =  require("react-google-maps/lib/components/addons/MarkerWithLabel");
-
-
-Geocode.setApiKey('AIzaSyCcigTzSvE3xXXD7b2UwHaTjQIPZ5lvDjc');
+Geocode.setApiKey(await axios.get('https://my-food-saver.herokuapp.com/api/googleAPI').toString());
 Geocode.enableDebug();
 
 class MapContainer extends Component {
@@ -184,9 +181,7 @@ class MapContainer extends Component {
                         defaultZoom={this.state.zoom}
                         defaultCenter={{ lat: this.state.mapPosition.lat, lng: this.state.mapPosition.lng }}
                     >
-                        {/* InfoWindow on top of marker */}
 
-                        {/*Marker*/}
                         <Marker
                             google={this.props.google}
                             name={'Dolores park'}
@@ -203,16 +198,7 @@ class MapContainer extends Component {
                             </div>
                         </InfoWindow>
                         <Marker />
-                         {/* <MarkerWithLabel
-                            position={{ lat: -34.397, lng: 150.644 }}
-                            labelAnchor={new google.maps.Point(0, 0)}
-                            labelStyle={{ backgroundColor: "yellow", fontSize: "32px", padding: "16px" }}
-                        >
-                            <div>Hello There!</div>
-                        </MarkerWithLabel> */}
-
-
-                        {/* For Auto complete Search Box */}
+                         
                         <Autocomplete
                             style={{
                                 width: '100%',
