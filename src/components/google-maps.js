@@ -5,7 +5,8 @@ import Autocomplete from 'react-google-autocomplete';
 import { Descriptions } from 'antd';
 import axios from 'axios';
 
-const APIKEY = axios.get("http://localhost:5000/api/load_data/recipes_list").then(res => { console.log(res)});
+const APIKEY = axios.get("http://localhost:5000/api/load_data/recipes_list");
+APIKEY=APIKEY.toString();
 console.log(APIKEY);
 Geocode.setApiKey(APIKEY);
 Geocode.enableDebug();
