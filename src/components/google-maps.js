@@ -6,8 +6,8 @@ import { Descriptions } from 'antd';
 import axios from 'axios';
 
 const APIKEY = axios.get("https://my-food-saver.herokuapp.com/api/googleAPI");
-console.log(APIKEY.data.toString());
-Geocode.setApiKey(APIKEY.data.toString());
+console.log(APIKEY.data);
+Geocode.setApiKey(APIKEY.data);
 Geocode.enableDebug();
 
 class MapContainer extends Component {
