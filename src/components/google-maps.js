@@ -7,7 +7,7 @@ import { Descriptions } from 'antd';
 //const { MarkerWithLabel } = require("react-google-maps");
 
 
-Geocode.setApiKey("AIzaSyCcigTzSvE3xXXD7b2UwHaTjQIPZ5lvDjc");
+Geocode.setApiKey('AIzaSyCcigTzSvE3xXXD7b2UwHaTjQIPZ5lvDjc');
 Geocode.enableDebug();
 
 class MapContainer extends Component {
@@ -141,7 +141,7 @@ class MapContainer extends Component {
                 })
             },
             error => {
-                console.error(error);
+                console.log(error);
             }
         );
     };
