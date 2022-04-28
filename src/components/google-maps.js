@@ -5,7 +5,7 @@ import Autocomplete from 'react-google-autocomplete';
 import { Descriptions } from 'antd';
 import axios from 'axios';
 
-const APIKEY = axios.get("http://localhost:5000/api/load_data/recipes_list");
+const APIKEY = axios.get("https://my-food-saver.herokuapp.com/api/googleAPI");
 APIKEY=APIKEY.toString();
 console.log(APIKEY);
 Geocode.setApiKey(APIKEY);
