@@ -4,7 +4,7 @@ import Geocode from "react-geocode";
 import Autocomplete from 'react-google-autocomplete';
 import { Descriptions } from 'antd';
 
-//const { MarkerWithLabel } = require("react-google-maps");
+const { MarkerWithLabel } =  require("react-google-maps/lib/components/addons/MarkerWithLabel");
 
 
 Geocode.setApiKey('AIzaSyCcigTzSvE3xXXD7b2UwHaTjQIPZ5lvDjc');
@@ -203,6 +203,16 @@ class MapContainer extends Component {
                             </div>
                         </InfoWindow>
                         <Marker />
+                         {/* <MarkerWithLabel
+                            position={{ lat: -34.397, lng: 150.644 }}
+                            labelAnchor={new google.maps.Point(0, 0)}
+                            labelStyle={{ backgroundColor: "yellow", fontSize: "32px", padding: "16px" }}
+                        >
+                            <div>Hello There!</div>
+                        </MarkerWithLabel> */}
+
+
+                        {/* For Auto complete Search Box */}
                         <Autocomplete
                             style={{
                                 width: '100%',
