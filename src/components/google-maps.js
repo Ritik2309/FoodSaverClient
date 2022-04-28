@@ -8,7 +8,7 @@ import axios from 'axios';
 //const { MarkerWithLabel } = require("react-google-maps");
 
 
-Geocode.setApiKey(axios.get("https://my-food-saver.herokuapp.com/api/googleAPI"));
+Geocode.setApiKey(axios.get("https://my-food-saver.herokuapp.com/api/googleAPI").toString());
 Geocode.enableDebug();
 
 class MapContainer extends Component {
