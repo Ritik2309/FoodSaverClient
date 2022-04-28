@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { withGoogleMap, GoogleMap, withScriptjs, InfoWindow, Marker} from 'google-maps-react';
+import { withGoogleMap, GoogleMap, withScriptjs, InfoWindow, Marker } from 'google-maps-react';
 import Geocode from "react-geocode";
 import Autocomplete from 'react-google-autocomplete';
 import { Descriptions } from 'antd';
