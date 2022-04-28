@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import "bootstrap/dist/css/bootstrap.min.css";
-import { withGoogleMap, GoogleMap, withScriptjs, InfoWindow, Marker } from 'google-maps-react';
+import React from 'react';
+import { withGoogleMap, GoogleMap, withScriptjs, InfoWindow, Marker } from "react-google-maps";
 import Geocode from "react-geocode";
 import Autocomplete from 'react-google-autocomplete';
 import { Descriptions } from 'antd';
+
 //const { MarkerWithLabel } = require("react-google-maps");
 
 
