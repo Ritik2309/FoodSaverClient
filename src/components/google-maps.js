@@ -3,12 +3,11 @@ import { withGoogleMap, GoogleMap, withScriptjs, InfoWindow, Marker } from "reac
 import Geocode from "react-geocode";
 import Autocomplete from 'react-google-autocomplete';
 import { Descriptions } from 'antd';
-import axios from 'axios';
 
 //const { MarkerWithLabel } = require("react-google-maps");
 
 
-Geocode.setApiKey(axios.get("https://my-food-saver.herokuapp.com/api/googleAPI").toString());
+Geocode.setApiKey("AIzaSyCcigTzSvE3xXXD7b2UwHaTjQIPZ5lvDjc");
 Geocode.enableDebug();
 
 class MapContainer extends Component {
@@ -232,7 +231,7 @@ class MapContainer extends Component {
                 </Descriptions>
 
                 <AsyncMap
-                    googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyComBmJ8e0gvK84jLDBkfAkczHqQXivuRA&libraries=places"
+                    googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcigTzSvE3xXXD7b2UwHaTjQIPZ5lvDjc&libraries=places"
                     loadingElement={
                         <div style={{ height: `100%` }} />
                     }
