@@ -4,7 +4,7 @@ import { withGoogleMap, GoogleMap, withScriptjs, InfoWindow, Marker} from 'googl
 import Geocode from "react-geocode";
 import Autocomplete from 'react-google-autocomplete';
 import { Descriptions } from 'antd';
-const { MarkerWithLabel } = require("react-google-maps/lib/components/addons/MarkerWithLabel");
+//const { MarkerWithLabel } = require("react-google-maps");
 
 
 Geocode.setApiKey("AIzaSyComBmJ8e0gvK84jLDBkfAkczHqQXivuRA");
@@ -267,15 +267,15 @@ class MapContainer extends Component {
                 </Descriptions>
 
                 <AsyncMap
-                    googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyALVjLwOIM1gf7EzdJJVmWLKdLP-yZGTcw&libraries=places"
+                    googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyComBmJ8e0gvK84jLDBkfAkczHqQXivuRA&libraries=places"
                     loadingElement={
-                        <div style={{ height: `100%` }} />
+                        <div style={{ height: `50%` }} />
                     }
                     containerElement={
                         <div style={{ height: this.state.height }} />
                     }
                     mapElement={
-                        <div style={{ height: `100%` }} />
+                        <div style={{ height: `50%` }} />
                     }
                 />
             </div>
