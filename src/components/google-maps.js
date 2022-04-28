@@ -269,13 +269,13 @@ class MapContainer extends Component {
                 <AsyncMap
                     googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyComBmJ8e0gvK84jLDBkfAkczHqQXivuRA&libraries=places"
                     loadingElement={
-                        <div style={{ height: `50%` }} />
+                        <div style={{ height: `100%` }} />
                     }
                     containerElement={
                         <div style={{ height: this.state.height }} />
                     }
                     mapElement={
-                        <div style={{ height: `50%` }} />
+                        <div style={{ height: `100%` }} />
                     }
                 />
             </div>
