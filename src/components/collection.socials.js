@@ -8,6 +8,7 @@ export default class SocialCollection extends Component {
   render() {
  
     const posts = this.props.posts;
+    
     posts.reverse();
     
       return (
@@ -19,7 +20,7 @@ export default class SocialCollection extends Component {
                 <div key={data} class="list-group">
                   <li class="list-group-item">
                     
-                    <SoocialPanelBox posts={data}/>
+                    <SoocialPanelBox posts={data} />
                 </li>
                 </div>
                 <br />
