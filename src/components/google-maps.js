@@ -5,14 +5,7 @@ import Autocomplete from 'react-google-autocomplete';
 import { Descriptions } from 'antd';
 import axios from 'axios';
 
-const APIKEY = ""
-axios.get("https://my-food-saver.herokuapp.com/api/googleAPI").then(res=>{
-    APIKEY = res;
-    console.log(res)
-});
-console.log(APIKEY);
-Geocode.setApiKey(APIKEY);
-Geocode.enableDebug();
+
 
 class MapContainer extends Component {
 
@@ -35,6 +28,14 @@ class MapContainer extends Component {
 
 
     componentDidMount() {
+        const APIKEY = ""
+        axios.get("https://my-food-saver.herokuapp.com/api/googleAPI").then(res=>{
+            APIKEY = res;
+            console.log(res)
+        });
+        console.log(APIKEY);
+        Geocode.setApiKey(APIKEY);
+        Geocode.enableDebug();
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(position => {
                 this.setState({
