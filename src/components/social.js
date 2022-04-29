@@ -33,6 +33,7 @@ export default class Social extends Component {
            
         }
   }
+  
 
   render() {
     const { isLoading, posts, imageSelected, location } = this.state;

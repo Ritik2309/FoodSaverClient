@@ -41,8 +41,8 @@ export default class AddToSocial extends Component {
         userID: "", 
         newEntryDate: getDateTime(), 
         newMessage: "", 
-        imageLink: getImage("image"),
-        location: getLocation("location")
+        imageLink: this.props.image,
+        location: this.props.location
       };
     
     this.submit = this.submit.bind(this);
@@ -82,6 +82,8 @@ export default class AddToSocial extends Component {
     
         selectImage(){
 
+        }
+        handleButtonClicked() {
         }
 
   render() {
