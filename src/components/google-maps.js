@@ -10,6 +10,7 @@ import axios from 'axios';
 class MapContainer extends Component {
 
     state = {
+        APIKEY:'',
         address: '',
         city: '',
         area: '',
@@ -25,17 +26,19 @@ class MapContainer extends Component {
             lng: 0,
         }
     }
-
+    async getAPI(){
+        await axios.get("https://my-food-saver.herokuapp.com/api/googleAPI").then(res=>{
+        this.setState({APIKEY: res});
+        console.log(res);
+        Geocode.setApiKey(this.state.APIKEY);
+        Geocode.enableDebug();
+        
+    });
+    }
 
     componentDidMount() {
-        const APIKEY = ""
-        axios.get("https://my-food-saver.herokuapp.com/api/googleAPI").then(res=>{
-            APIKEY = res;
-            console.log(res)
-        });
-        console.log(APIKEY);
-        Geocode.setApiKey(APIKEY);
-        Geocode.enableDebug();
+        
+        this.getAPI();
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(position => {
                 this.setState({
