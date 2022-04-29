@@ -190,7 +190,7 @@ class MapContainer extends Component {
     };
 
     render() {
-        const URL = this.getAPIURL();
+        const URL = this.state.APIURL
         console.log(URL);
         const AsyncMap = withScriptjs(
             withGoogleMap(
