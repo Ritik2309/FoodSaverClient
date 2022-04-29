@@ -34,7 +34,7 @@ class MapContainer extends Component {
         Geocode.enableDebug();
     });}
     async getAPIURL(){
-        const url = `"https://maps.googleapis.com/maps/api/js?key= ${this.state.APIKEY} &libraries=places"`
+        const url = `"https://maps.googleapis.com/maps/api/js?key=${this.state.APIKEY}&libraries=places"`
          
         console.log(url)
         return url;
