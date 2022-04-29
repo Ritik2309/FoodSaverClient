@@ -11,7 +11,6 @@ class MapContainer extends Component {
 
     state = {
         APIKEY:'',
-        APIURL:'',
         address: '',
         city: '',
         area: '',
@@ -152,6 +151,7 @@ class MapContainer extends Component {
         );
     };
 
+
     onPlaceSelected = (place) => {
         console.log('plc', place);
         const address = place.formatted_address,
@@ -181,6 +181,9 @@ class MapContainer extends Component {
             },
         })
     };
+    submit(){
+        
+    }
 
     render() {
     
@@ -220,7 +223,7 @@ class MapContainer extends Component {
                             onPlaceSelected={this.onPlaceSelected}
                             types={['(regions)']}
                         />
-
+                         <button onClick={this.submit} class="mx-3 btn btn-danger float-right">Select Location</button>
                     </GoogleMap>
                 )
             )

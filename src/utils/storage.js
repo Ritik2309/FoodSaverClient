@@ -36,3 +36,45 @@ export function getFromStorage(key) {
       return false;
     }
   }
+
+  export function getLocation(key) {
+    
+    try {
+      const valueStr = localStorage.getItem(key);
+        if (valueStr) {
+        return JSON.parse(valueStr);
+      }
+      
+    } catch (err) {
+      return null;
+    }
+  }
+  export function setLocationStorage(obj) {
+    
+    try {
+      localStorage.setItem("location", JSON.stringify(obj));
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  export function getImage(key) {
+    
+    try {
+      const valueStr = localStorage.getItem(key);
+        if (valueStr) {
+        return JSON.parse(valueStr);
+      }
+      
+    } catch (err) {
+      return null;
+    }
+  }
+  export function setImageStorage(obj) {
+    
+    try {
+      localStorage.setItem("image", JSON.stringify(obj));
+    } catch (err) {
+      console.error(err);
+    }
+  }

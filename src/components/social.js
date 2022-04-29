@@ -4,12 +4,13 @@ import SocialCollection from "./collection.socials";
 import AddToSocial from './add-to-social';
 import axios from "axios";
 import checkLogin from '../utils/checkLogin';
+import {getLocation, getImage} from '../utils/storage';
 
 export default class Social extends Component {
   constructor(props) {
     super(props);
     console.log(props)
-    this.state = { isLoading: true, posts: undefined, imageSelected: this.props.location.image};
+    this.state = { isLoading: true, posts: undefined, imageSelected: getImage("image"), location: getLocation("location")};
   }
   
   componentDidMount() {
@@ -34,7 +35,7 @@ export default class Social extends Component {
   }
 
   render() {
-    const { isLoading, posts, imageSelected } = this.state;
+    const { isLoading, posts, imageSelected, location } = this.state;
     
     console.log(imageSelected);
     if (isLoading) {
@@ -46,7 +47,7 @@ export default class Social extends Component {
         
         <h3>Add Post</h3>
         
-        <AddToSocial posts={posts} image = {imageSelected}/>
+        <AddToSocial posts={posts} image = {imageSelected} location = {location}/>
         <h3> Posts </h3>
         <br />
         <SocialCollection posts={posts} /> 

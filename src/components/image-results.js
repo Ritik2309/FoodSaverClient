@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./styling.module.css" 
 import { Link } from 'react-router-dom';
+import {setImageStorage} from "../utils/storage";
 
 export default class ImageResults extends Component {
   render() {  
@@ -23,9 +24,11 @@ export default class ImageResults extends Component {
                             
                             <Link to={{
                                 pathname: "/social",
-                                image: data.image
+                                image: data.image,
+                              
                             }}>
-                            <button class="float-right" type="submit">Select Image</button>
+                            
+                            <button class="float-right" type="submit" onClick={setImageStorage(data.image)}>Select Image</button>
                             </Link>
                              
                               </div>
