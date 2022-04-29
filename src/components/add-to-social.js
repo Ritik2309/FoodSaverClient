@@ -5,6 +5,8 @@ import checkLogin from '../utils/checkLogin'
 import RecipeImageBar from "./recipe-image-bar";
 import sleep from '../utils/refresh';
 import {getImage, getLocation} from '../utils/storage';
+import { Link } from 'react-router-dom';
+
 
 function getDateTime() {
   var now     = new Date(); 

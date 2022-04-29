@@ -5,7 +5,7 @@ import Autocomplete from 'react-google-autocomplete';
 import { Descriptions } from 'antd';
 import axios from 'axios';
 import { setLocationStorage } from '../utils/storage';
-
+import {Link} from "react-router-dom";
 
 
 class MapContainer extends Component {

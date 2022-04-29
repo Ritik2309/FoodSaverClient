@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import SoocialPanelBox from "./social-post-box";
 import styles from "./styling.module.css" 
 
+
 export default class SocialCollection extends Component {
   render() {
  
