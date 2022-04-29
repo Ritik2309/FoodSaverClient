@@ -7,8 +7,8 @@ import axios from 'axios';
 
 const APIKEY = ""
 axios.get("https://my-food-saver.herokuapp.com/api/googleAPI").then(res=>{
-    APIKEY = res.data;
-    console.log(res.data)
+    APIKEY = res;
+    console.log(res)
 });
 console.log(APIKEY);
 Geocode.setApiKey(APIKEY);
