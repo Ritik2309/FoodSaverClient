@@ -4,6 +4,7 @@ import Geocode from "react-geocode";
 import Autocomplete from 'react-google-autocomplete';
 import { Descriptions } from 'antd';
 import axios from 'axios';
+import { setLocationStorage } from '../utils/storage';
 
 
 
@@ -182,7 +183,8 @@ class MapContainer extends Component {
         })
     };
     submit(){
-        
+
+        setLocationStorage(this.address)
     }
 
     render() {

@@ -4,6 +4,7 @@ import styles from "./styling.module.css"
 import checkLogin from '../utils/checkLogin'
 import RecipeImageBar from "./recipe-image-bar";
 import sleep from '../utils/refresh';
+import {getImage, getLocation} from '../utils/storage';
 
 function getDateTime() {
   var now     = new Date(); 
@@ -33,22 +34,14 @@ function getDateTime() {
 export default class AddToSocial extends Component {
   constructor(props) {
     super(props);
-    if(this.props.image){
+    
       this.state = {
         userID: "", 
         newEntryDate: getDateTime(), 
         newMessage: "", 
-        imageLink: this.props.image,
+        imageLink: getImage("image"),
+        location: getLocation("location")
       };
-    }
-    if(!this.props.image){
-      this.state = {
-        userID: "", 
-        newEntryDate: getDateTime(), 
-        newMessage: "", 
-        imageLink: "/images/NO-IMAGE.jpg",
-      };
-    }
     
     this.submit = this.submit.bind(this);
     
@@ -74,6 +67,7 @@ export default class AddToSocial extends Component {
                     newEntryDate:getDateTime().toString(),
                     newMessage: this.state.newMessage,
                     imageLink: this.state.imageLink,
+                    location: this.state.location,
                     replies: []
                   });
             });
@@ -96,7 +90,7 @@ export default class AddToSocial extends Component {
             <div><label htmlFor="exampleFormControlTextarea1">Search for food images to add to post: <RecipeImageBar /><br /> </label><label htmlFor="exampleFormControlTextarea1"> <br /> Currently selected image: <img class="float-right" className={styles.recipePreviewSize} src={this.state.imageLink}></img></label><div>
             
             </div></div>
-            
+            <label htmlFor="exampleFormControlTextarea1">currently selected location: {this.state.location}</label>
            
             
               <label htmlFor="exampleFormControlTextarea1">Then enter a message to post:</label>
