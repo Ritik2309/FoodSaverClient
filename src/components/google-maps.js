@@ -36,13 +36,13 @@ class MapContainer extends Component {
     async getAPIURL(){
         await axios.get("https://my-food-saver.herokuapp.com/api/googleMapURL").then(res=>{
         this.setState({APIURL: res.data});
-        console.log(this.state.APIURL)
+        return res.data;
     });}
 
     componentDidMount() {
         
         this.getAPI();
-        this.getAPIURL();
+        
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(position => {
                 this.setState({
@@ -190,7 +190,7 @@ class MapContainer extends Component {
     };
 
     render() {
-        
+        const APIURl = this.getAPIURL();
         const AsyncMap = withScriptjs(
             withGoogleMap(
                 props => (
@@ -246,7 +246,7 @@ class MapContainer extends Component {
                 </Descriptions>
 
                 <AsyncMap
-                    googleMapURL = {this.state.APIURL}
+                    googleMapURL = {APIURl}
                     loadingElement={
                         <div style={{ height: `100%` }} />
                     }
