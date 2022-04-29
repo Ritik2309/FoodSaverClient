@@ -31,7 +31,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": " gapi=AIzaSyCcigTzSvE3xXXD7b2UwHaTjQIPZ5lvDjc && printenv && react-scripts build",
+    "build": " set gapi=AIzaSyCcigTzSvE3xXXD7b2UwHaTjQIPZ5lvDjc && printenv && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "clean-start": "rm -rf node_modules && npm install && rm -rf $TMPDIR/react* && npm start --reset-cache"
