@@ -11,6 +11,7 @@ export default class Social extends Component {
     super(props);
     console.log(props)
     this.state = { isLoading: true, posts: undefined, imageSelected: getImage("image"), location: getLocation("location")};
+    console.log(this.state.location)
   }
   
   componentDidMount() {
