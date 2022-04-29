@@ -183,8 +183,8 @@ class MapContainer extends Component {
         })
     };
     submit(){
-
-        setLocationStorage(this.address)
+        console.log(this.state.address)
+        setLocationStorage(this.state.address)
         
     }
 
