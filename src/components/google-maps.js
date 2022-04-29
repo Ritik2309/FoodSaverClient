@@ -29,9 +29,9 @@ class MapContainer extends Component {
     }
     async getAPI(){
         await axios.get("https://my-food-saver.herokuapp.com/api/googleAPI").then(res=>{
-        this.setState({APIKEY: process.env.gapi});
+        this.setState({APIKEY: process.env['gapi']});
         console.log(process.env)
-        console.log(process.env.gapi)
+        console.log(process.env['gapi'])
         Geocode.setApiKey(this.state.APIKEY);
         Geocode.enableDebug();
     });}
