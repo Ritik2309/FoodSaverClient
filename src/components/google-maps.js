@@ -35,7 +35,7 @@ class MapContainer extends Component {
     });}
     async getAPIURL(){
         const url = `https://maps.googleapis.com/maps/api/js?key=${this.state.APIKEY}&libraries=places`
-         
+        this.setState({APIURL: url});
         console.log(url)
         return url;
     }
@@ -174,6 +174,7 @@ class MapContainer extends Component {
 
         // Set these values in the state.
         this.setState({
+            APIURL: this.state.APIURL,
             address: (address) ? address : '',
             area: (area) ? area : '',
             city: (city) ? city : '',
