@@ -191,6 +191,7 @@ class MapContainer extends Component {
 
     render() {
         const URL = this.getAPIURL();
+        console.log(URL);
         const AsyncMap = withScriptjs(
             withGoogleMap(
                 props => (
