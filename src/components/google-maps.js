@@ -185,6 +185,7 @@ class MapContainer extends Component {
     submit(){
 
         setLocationStorage(this.address)
+        
     }
 
     render() {
@@ -225,7 +226,12 @@ class MapContainer extends Component {
                             onPlaceSelected={this.onPlaceSelected}
                             types={['(regions)']}
                         />
-                         <button onClick={this.submit} class="mx-3 btn btn-danger float-right">Select Location</button>
+                        <Link to={{
+                            pathname: "/social"
+                        }}>
+                        <button onClick={this.submit} class="float-right" type="submit">Select Location</button>
+                        </Link>
+                        
                     </GoogleMap>
                 )
             )
