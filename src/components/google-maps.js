@@ -4,6 +4,7 @@ import Geocode from "react-geocode";
 import Autocomplete from 'react-google-autocomplete';
 import { Descriptions } from 'antd';
 import axios from 'axios';
+require('dotenv').config()
 
 
 
