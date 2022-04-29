@@ -28,8 +28,8 @@ class MapContainer extends Component {
     }
     async getAPI(){
         await axios.get("https://my-food-saver.herokuapp.com/api/googleAPI").then(res=>{
-        this.setState({APIKEY: res});
-        console.log(res);
+        this.setState({APIKEY: res.data});
+        console.log(res.data);
         Geocode.setApiKey(this.state.APIKEY);
         Geocode.enableDebug();
         
