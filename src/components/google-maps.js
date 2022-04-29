@@ -34,10 +34,11 @@ class MapContainer extends Component {
         Geocode.enableDebug();
     });}
     async getAPIURL(){
-        await axios.get("https://my-food-saver.herokuapp.com/api/googleMapURL").then(res=>{
-        this.setState({APIURL: res.data});
-        console.log(this.state.APIURL)
-    });}
+        const url = `https://maps.googleapis.com/maps/api/js?key= ${this.state.APIKEY} &libraries=places`
+         
+        console.log(this.state.APIKEY)
+        return url;
+    }
 
     componentDidMount() {
         
@@ -189,7 +190,7 @@ class MapContainer extends Component {
     };
 
     render() {
-        const URL = `https://maps.googleapis.com/maps/api/js?key= ${this.state.APIKEY} &libraries=places`
+        const URL = this.getAPIURL();
         const AsyncMap = withScriptjs(
             withGoogleMap(
                 props => (
