@@ -29,11 +29,10 @@ class MapContainer extends Component {
     }
     async getAPI(){
         await axios.get("https://my-food-saver.herokuapp.com/api/googleAPI").then(res=>{
-        this.setState({APIKEY: process.env['gapi']});
+        this.setState({APIKEY: process.env.gapi});
         console.log(process.env)
         console.log(process.env.gapi)
         console.log(process.env.gkey)
-        console.log(process.env['gapi'])
         Geocode.setApiKey(this.state.APIKEY);
         Geocode.enableDebug();
     });}
@@ -242,7 +241,7 @@ class MapContainer extends Component {
                 </Descriptions>
 
                 <AsyncMap
-                    googleMapURL= {"https://maps.googleapis.com/maps/api/js?key=" + process.env.googleapi + "&libraries=places"}
+                    googleMapURL= {"https://maps.googleapis.com/maps/api/js?key=" + process.env.gapi + "&libraries=places"}
                     loadingElement={
                         <div style={{ height: `100%` }} />
                     }
