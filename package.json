@@ -30,7 +30,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": " googleapi=AIzaSyCcigTzSvE3xXXD7b2UwHaTjQIPZ5lvDjc && react-scripts build",
+    "build": " googleapi=AIzaSyCcigTzSvE3xXXD7b2UwHaTjQIPZ5lvDjc && printenv && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "clean-start": "rm -rf node_modules && npm install && rm -rf $TMPDIR/react* && npm start --reset-cache"
