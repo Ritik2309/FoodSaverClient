@@ -29,16 +29,12 @@ class MapContainer extends Component {
     }
     async getAPI(){
         await axios.get("https://my-food-saver.herokuapp.com/api/googleAPI").then(res=>{
-        this.setState({APIKEY: res.data});
+        this.setState({APIKEY: process.env.GoogleAPI});
+        console.log(process.env.googleapi)
         Geocode.setApiKey(this.state.APIKEY);
         Geocode.enableDebug();
     });}
-    async getAPIURL(){
-        const url = "https://maps.googleapis.com/maps/api/js?key=" + this.state.APIKEY + "&libraries=places"
-       
-        return url;
-    }
-
+ 
     componentDidMount() {
         
         this.getAPI();
@@ -172,7 +168,6 @@ class MapContainer extends Component {
 
         // Set these values in the state.
         this.setState({
-            APIURL: this.state.APIURL,
             address: (address) ? address : '',
             area: (area) ? area : '',
             city: (city) ? city : '',
@@ -189,8 +184,7 @@ class MapContainer extends Component {
     };
 
     render() {
-        const URL = this.getAPIURL();
-        console.log(URL);
+    
         const AsyncMap = withScriptjs(
             withGoogleMap(
                 props => (
