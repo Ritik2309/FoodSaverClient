@@ -229,7 +229,7 @@ class MapContainer extends Component {
                         <Link to={{
                             pathname: "/social"
                         }}>
-                        <button onClick={this.submit} class="float-right" type="submit">Select Location</button>
+                        <button onClick={setLocationStorage(this.state.address)} class="float-right" type="submit">Select Location</button>
                         </Link>
                         
                     </GoogleMap>
