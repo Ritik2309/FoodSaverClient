@@ -239,7 +239,7 @@ class MapContainer extends Component {
                 </Descriptions>
 
                 <AsyncMap
-                    googleMapURL= {"https://maps.googleapis.com/maps/api/js?key=" + this.state.APIKEY + "&libraries=places"}
+                    googleMapURL= {"https://maps.googleapis.com/maps/api/js?key=" + process.env.googleapi + "&libraries=places"}
                     loadingElement={
                         <div style={{ height: `100%` }} />
                     }
