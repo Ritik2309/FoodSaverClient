@@ -36,7 +36,7 @@ class MapContainer extends Component {
     async getAPIURL(){
         await axios.get("https://my-food-saver.herokuapp.com/api/googleMapURL").then(res=>{
         this.setState({APIURL: res.data});
-        return res.data;
+        console.log(APIURL)
     });}
 
     componentDidMount() {
@@ -80,7 +80,7 @@ class MapContainer extends Component {
                     })
             });
         } else {
-            console.log("Geolocation broken!");
+            console.log();("Geolocation broken!");
         }
     };
 
@@ -173,7 +173,6 @@ class MapContainer extends Component {
 
         // Set these values in the state.
         this.setState({
-            APIURL: this.state.APIURL,
             address: (address) ? address : '',
             area: (area) ? area : '',
             city: (city) ? city : '',
@@ -190,7 +189,7 @@ class MapContainer extends Component {
     };
 
     render() {
-        const APIURl = this.getAPIURL();
+        const URL = `https://maps.googleapis.com/maps/api/js?key= ${this.state.APIKEY} &libraries=places`
         const AsyncMap = withScriptjs(
             withGoogleMap(
                 props => (
@@ -236,7 +235,6 @@ class MapContainer extends Component {
         return (
             
             <div style={{ padding: '1rem', margin: '0 auto', maxWidth: 1000 }}>
-                
                 <h1>Google Map Meetup Location Selection</h1>
                 <Descriptions bordered>
                     <Descriptions.Item label="City">{this.state.city}</Descriptions.Item>
@@ -246,7 +244,7 @@ class MapContainer extends Component {
                 </Descriptions>
 
                 <AsyncMap
-                    googleMapURL = {APIURl}
+                    googleMapURL= {URL}
                     loadingElement={
                         <div style={{ height: `100%` }} />
                     }
