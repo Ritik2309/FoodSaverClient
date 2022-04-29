@@ -43,7 +43,7 @@ class MapContainer extends Component {
     componentDidMount() {
         
         this.getAPI();
-        this.setState({APIURL: getAPIURL});
+        this.setState({APIURL: this.getAPIURL()});
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(position => {
                 this.setState({
