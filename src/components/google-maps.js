@@ -246,7 +246,7 @@ class MapContainer extends Component {
                 </Descriptions>
 
                 <AsyncMap
-                    googleMapURL= {this.getAPIURL()}
+                    googleMapURL= {this.getAPIURL().toString()}
                     loadingElement={
                         <div style={{ height: `100%` }} />
                     }
