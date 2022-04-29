@@ -4,7 +4,7 @@ import Geocode from "react-geocode";
 import Autocomplete from 'react-google-autocomplete';
 import { Descriptions } from 'antd';
 import axios from 'axios';
-require('dotenv').config();
+
 
 
 class MapContainer extends Component {
@@ -29,11 +29,7 @@ class MapContainer extends Component {
     }
     async getAPI(){
         await axios.get("https://my-food-saver.herokuapp.com/api/googleAPI").then(res=>{
-        this.setState({APIKEY: process.env.gapi});
-        console.log(process.env)
-        console.log(process.env.newapikey)
-        console.log(process.env.gapi)
-        console.log(process.env.gkey)
+        this.setState({APIKEY: res.data});
         Geocode.setApiKey(this.state.APIKEY);
         Geocode.enableDebug();
     });}
@@ -242,7 +238,7 @@ class MapContainer extends Component {
                 </Descriptions>
 
                 <AsyncMap
-                    googleMapURL= {"https://maps.googleapis.com/maps/api/js?key=" + process.env.gapi + "&libraries=places"}
+                    googleMapURL= {"https://maps.googleapis.com/maps/api/js?key=" + this.state.APIKEY + "&libraries=places"}
                     loadingElement={
                         <div style={{ height: `100%` }} />
                     }
