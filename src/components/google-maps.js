@@ -11,6 +11,7 @@ class MapContainer extends Component {
 
     state = {
         APIKEY:'',
+        APIURL:'',
         address: '',
         city: '',
         area: '',
@@ -29,16 +30,19 @@ class MapContainer extends Component {
     async getAPI(){
         await axios.get("https://my-food-saver.herokuapp.com/api/googleAPI").then(res=>{
         this.setState({APIKEY: res.data});
-        console.log(res.data);
         Geocode.setApiKey(this.state.APIKEY);
         Geocode.enableDebug();
-        
-    });
-    }
+    });}
+    async getAPIURL(){
+        await axios.get("https://my-food-saver.herokuapp.com/api/googleMapURL").then(res=>{
+        this.setState({APIURL: res.data});
+        console.log(this.state.APIURL)
+    });}
 
     componentDidMount() {
         
         this.getAPI();
+        this.getAPIURL();
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(position => {
                 this.setState({
@@ -76,7 +80,7 @@ class MapContainer extends Component {
                     })
             });
         } else {
-            console.error("Geolocation is not supported by this browser!");
+            console.log("Geolocation broken!");
         }
     };
 
@@ -169,6 +173,7 @@ class MapContainer extends Component {
 
         // Set these values in the state.
         this.setState({
+            APIURL: this.state.APIURL,
             address: (address) ? address : '',
             area: (area) ? area : '',
             city: (city) ? city : '',
@@ -185,6 +190,7 @@ class MapContainer extends Component {
     };
 
     render() {
+        
         const AsyncMap = withScriptjs(
             withGoogleMap(
                 props => (
@@ -228,7 +234,9 @@ class MapContainer extends Component {
         );
 
         return (
+            
             <div style={{ padding: '1rem', margin: '0 auto', maxWidth: 1000 }}>
+                
                 <h1>Google Map Meetup Location Selection</h1>
                 <Descriptions bordered>
                     <Descriptions.Item label="City">{this.state.city}</Descriptions.Item>
@@ -238,7 +246,7 @@ class MapContainer extends Component {
                 </Descriptions>
 
                 <AsyncMap
-                    googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcigTzSvE3xXXD7b2UwHaTjQIPZ5lvDjc&libraries=places"
+                    googleMapURL = {this.state.APIURL}
                     loadingElement={
                         <div style={{ height: `100%` }} />
                     }
@@ -254,6 +262,5 @@ class MapContainer extends Component {
     }
 
 }
-
 
 export default MapContainer;
