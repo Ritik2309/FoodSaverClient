@@ -36,7 +36,7 @@ class MapContainer extends Component {
     async getAPIURL(){
         await axios.get("https://my-food-saver.herokuapp.com/api/googleMapURL").then(res=>{
         this.setState({APIURL: res.data});
-        console.log(APIURL)
+        console.log(this.state.APIURL)
     });}
 
     componentDidMount() {
@@ -80,7 +80,7 @@ class MapContainer extends Component {
                     })
             });
         } else {
-            console.log();("Geolocation broken!");
+            console.log("Geolocation broken!");
         }
     };
 
