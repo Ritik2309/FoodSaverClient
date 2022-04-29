@@ -42,7 +42,6 @@ class MapContainer extends Component {
     componentDidMount() {
         
         this.getAPI();
-        this.setState({APIURL: this.getAPIURL()});
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(position => {
                 this.setState({
@@ -191,7 +190,9 @@ class MapContainer extends Component {
 
     render() {
         const URL = this.getAPIURL();
+        const test = URL
         console.log(URL);
+        console.log(test);
         const AsyncMap = withScriptjs(
             withGoogleMap(
                 props => (
@@ -246,7 +247,7 @@ class MapContainer extends Component {
                 </Descriptions>
 
                 <AsyncMap
-                    googleMapURL= {URL.toString()}
+                    googleMapURL= {URL}
                     loadingElement={
                         <div style={{ height: `100%` }} />
                     }
