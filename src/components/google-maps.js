@@ -5,7 +5,11 @@ import Autocomplete from 'react-google-autocomplete';
 import { Descriptions } from 'antd';
 import axios from 'axios';
 
-const APIKEY = axios.get("https://my-food-saver.herokuapp.com/api/googleAPI");
+const APIKEY = ""
+axios.get("https://my-food-saver.herokuapp.com/api/googleAPI").then(res=>{
+    APIKEY = res.data;
+    console.log(res.data)
+});
 console.log(APIKEY);
 Geocode.setApiKey(APIKEY);
 Geocode.enableDebug();
