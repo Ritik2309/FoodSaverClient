@@ -190,8 +190,8 @@ class MapContainer extends Component {
     };
 
     render() {
-        const URL = this.getAPIURL().toString();
-        console.log(URL);
+        const URL = this.getAPIURL();
+        console.log(URL.toString());
         const AsyncMap = withScriptjs(
             withGoogleMap(
                 props => (
@@ -246,7 +246,7 @@ class MapContainer extends Component {
                 </Descriptions>
 
                 <AsyncMap
-                    googleMapURL= {this.getAPIURL().toString()}
+                    googleMapURL= {URL.toString()}
                     loadingElement={
                         <div style={{ height: `100%` }} />
                     }
