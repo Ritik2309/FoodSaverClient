@@ -53,9 +53,13 @@ export default class Social extends Component {
 
     return (
     <div class="container">
+        <br />
+        <h3>Social Sharing </h3>
+        <p class="text-muted float-left">Make posts to share food here! all other users can see them.</p>
+        <br />
+        <br />
         
         <h3>Add Post</h3>
-        
         <AddToSocial posts={posts} image = {imageSelected} location = {location}/>
         <h3> Posts </h3>
         <br />
