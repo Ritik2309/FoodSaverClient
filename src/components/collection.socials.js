@@ -17,10 +17,10 @@ export default class SocialCollection extends Component {
               return (
                 <>
                 <div key={data} class="list-group">
-                  <li class="list-group-item">
+                  
                     
                     <SocialPanelBox posts={data} />
-                </li>
+                
                 </div>
                 <br />
                 <br />

@@ -4,7 +4,7 @@ import styles from "./styling.module.css"
 import checkLogin from '../utils/checkLogin'
 import RecipeImageBar from "./recipe-image-bar";
 import sleep from '../utils/refresh';
-import {getImage, getLocation, getFromStorage} from '../utils/storage';
+import { getFromStorage} from '../utils/storage';
 import { Link } from 'react-router-dom';
 
 

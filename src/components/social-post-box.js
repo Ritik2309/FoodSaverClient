@@ -7,31 +7,16 @@ import checkLogin from '../utils/checkLogin';
 import axios from 'axios';
 import RemovePost from './remove-post';
 import { Button } from 'antd';
+import { setInStorage } from '../utils/storage';
 
 export default class SocialPanelBox extends Component {
   constructor(props) {
     super(props);
-    this.state = { userID: undefined, postID: undefined, postUserID: undefined};
+    
   }
   componentDidMount() {
       
-    let token = checkLogin();
-    if (!(token == null)) {
-      
-      axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
-        .then(res => {
-          console.log(res)
-          this.setState({ userID: res.data._id });
-            axios.get("https://my-food-saver.herokuapp.com/api/Social_posts/load_posts").then(result => {
-              
-              this.setState({ posts: result.data});
-              console.log(result.data);
-              this.setState({postUserID: result.data._id});
-              
-               });
-            });
-       
-    }
+
     
 }
 
@@ -48,7 +33,7 @@ export default class SocialPanelBox extends Component {
     return (     
         <div class="card">
                 <img src={post.socialPost.imageLink} width={400} height={400} class="card-img-top"/>
-                <h5 class=" card-text"> {post.socialPost.username} {post.socialPost.entryDate} <sendDM toID={post.socialPost.userID} /> </h5>
+                <h5 class=" card-text"> {post.socialPost.username} {post.socialPost.entryDate} <sendDM postID={post._id} username={post.socialPost.username} /> </h5>
                 <p >Post: <p class="card-title" style={{fontWeight: 'bold'}}>{post.socialPost.postMessage}</p></p>
                 <p >Suggested meet up Location: <p class="card-title" style={{fontWeight: 'bold'}}>{post.socialPost.location}</p></p>
                 <ReplyToPost reply={post}/>
