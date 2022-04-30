@@ -83,6 +83,7 @@ export default class Settings extends Component {
               }
               <br/>
             </div>
+            
 
             <div class="col-6 bg-success rounded">
               <br/>

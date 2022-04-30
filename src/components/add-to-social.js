@@ -4,7 +4,7 @@ import styles from "./styling.module.css"
 import checkLogin from '../utils/checkLogin'
 import RecipeImageBar from "./recipe-image-bar";
 import sleep from '../utils/refresh';
-import {getImage, getLocation} from '../utils/storage';
+import {getImage, getLocation, getFromStorage} from '../utils/storage';
 import { Link } from 'react-router-dom';
 
 
@@ -61,10 +61,9 @@ export default class AddToSocial extends Component {
             
             axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
               .then(res => {
-                  const userID = res.data._id
                   const username = res.data.name;
                   axios.post("https://my-food-saver.herokuapp.com/api/Social_posts/add_post", {
-                    userID: userID,
+                    userID: getFromStorage('x-auth-token'),
                     username:username,
                     newEntryDate:getDateTime().toString(),
                     newMessage: this.state.newMessage,
@@ -91,20 +90,27 @@ export default class AddToSocial extends Component {
     return (
         <div class="container-fluid">
           <div id="alert-placeholder"/>
-
-          <form>
-            <div class="form-group">
-            <div><label htmlFor="exampleFormControlTextarea1" style={{fontWeight: 'bold'}}> <br /> Currently selected image: </label> <img class="float-right" className={styles.recipePreviewSize} src={this.state.imageLink}></img> 
-            <label htmlFor="exampleFormControlTextarea1"style={{fontWeight: 'bold'}}>Search for food images to add to post: <label><RecipeImageBar /></label> <br /> </label><div>
-            
-            </div></div>
-            <label htmlFor="exampleFormControlTextarea1" style={{fontWeight: 'bold'}}> <br />currently selected location: </label><br /><label>{this.state.location}<br /></label><label><Link to={{
+          <div class="col-6 bg-secondary rounded">
+          <div><label htmlFor="exampleFormControlTextarea1" style={{fontWeight: 'bold'}}> <br /> Currently selected image: </label>
+            <br />
+            <br />
+            <img class="float-right" className={styles.recipePreviewSize} src={this.state.imageLink}></img>
+            <br />
+            <br />  
+            <label htmlFor="exampleFormControlTextarea1"style={{fontWeight: 'bold'}}>Search for food images to add to post: <label> <br /> <RecipeImageBar /></label> </label>
+           
+            <label htmlFor="exampleFormControlTextarea1" style={{fontWeight: 'bold'}}> <br />currently selected location: </label><br /><label>{this.state.location}<br /></label>
+            <label><Link to={{
             pathname: "/maps"
               }}>
           <button type="button" class="mx-1 btn btn-primary float-right">Select New Location</button>
           </Link></label>
-            <br />
-            <br />
+          </div>
+            </div>
+
+          <form>
+            <div class="form-group">
+           
             
             <br />
             <br />

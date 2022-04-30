@@ -125,6 +125,16 @@ export default class Frame extends Component {
           <Login buttonText={"Social Sharing"} />
           }
 
+          {(loggedIn === true) &&
+          <Link to="/directmessages">
+          <button type="button" class="mx-1 btn btn-primary float-right">My DMs</button>
+          </Link>
+          }
+          {(loggedIn !== true) &&
+          <Login buttonText={"My DMs"} />
+          }
+          
+
           <Link to="/home">
           <button type="button" class="mx-1 btn btn-primary float-right">Home</button>
           </Link>
