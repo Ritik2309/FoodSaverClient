@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import {integerCheck, tfTimeCheck} from "../utils/validation";
 import axios from 'axios';
 import checkLogin from '../utils/checkLogin';
-import { post } from 'jquery';
+
 
 function getDateTime() {
     var now     = new Date(); 
@@ -31,7 +31,7 @@ function getDateTime() {
 }
 
 
-export default class AddToButton extends Component {
+export default class sendDM extends Component {
     constructor(props) {
         super(props);
 
