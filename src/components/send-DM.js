@@ -130,7 +130,7 @@ export default class AddToButton extends Component {
                                 </div> 
                             </form>
 
-                            <button id="submitButton" class="mx-3 btn btn-secondary float-right">Submit</button>
+                            <button id="submitButton" class="mx-3 btn btn-secondary float-right">Send </button>
                         </div>
                     </div>
                 </div>
