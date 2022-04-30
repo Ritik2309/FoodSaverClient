@@ -41,7 +41,7 @@ export default class signup extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    if(!twoWordMax(this.state.name)){
+   
       if(checkAt(this.state.email)){
         if(inputFormat(this.state.password)){
           const user = {
@@ -64,10 +64,6 @@ export default class signup extends Component {
         $('#alert-placeholder').html("<div class='alert alert-danger' role='alert'>"
         + "Email format incorrect, use format ____@____.____!</div>");
       }
-    }else{
-      $('#alert-placeholder').html("<div class='alert alert-danger' role='alert'>"
-      + "Name must be no more & no less than 1 words!</div>");
-    }
   }
 
   render() {
@@ -79,7 +75,7 @@ export default class signup extends Component {
 
       <form onSubmit={this.onSubmit}>
       <div className="form-group"> 
-          <label>Name: </label>
+          <label>Username: </label>
           <input  type="text" 
               required
               className="form-control"
