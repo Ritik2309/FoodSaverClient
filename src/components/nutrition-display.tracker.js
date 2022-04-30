@@ -96,7 +96,7 @@ export default class NutritionInfo extends Component {
                 </ div>
                 <div class="col">
                   <dt class="list-group-item h2">Fats</dt>
-                  <dd class="list-group-item h3" style={{ color: 'yellow' }}>{todaysFats}g</dd>
+                  <dd class="list-group-item h3" style={{ color: '#8B8000' }}>{todaysFats}g</dd>
                 </ div>
                 <div class="col">
                   <dt class="list-group-item h2">Fiber</dt>
