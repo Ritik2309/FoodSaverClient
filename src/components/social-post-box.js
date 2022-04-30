@@ -34,7 +34,7 @@ export default class SocialPanelBox extends Component {
         <div class="card">
                 <img src={post.socialPost.imageLink} width={400} height={400} class="card-img-top"/>
                 <h5 class=" card-text"> {post.socialPost.username} {post.socialPost.entryDate}  </h5>
-                <p >Post: <p class="card-title" style={{fontWeight: 'bold'}}>{post.socialPost.postMessage}</p> <sendDM postID={post._id} username={post.socialPost.username} /></p>
+                <p >Post: <p class="card-title" style={{fontWeight: 'bold'}}>{post.socialPost.postMessage}</p> <sendDM postID={post._id} username={post.socialPost.username}/>  </p>
                 <p >Suggested meet up Location: <p class="card-title" style={{fontWeight: 'bold'}}>{post.socialPost.location}</p></p>
                 <ReplyToPost reply={post}/>
                 <br></br>

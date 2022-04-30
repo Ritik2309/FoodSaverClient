@@ -25,7 +25,7 @@ export default class AddToTracker extends Component {
     this.state = {
         name: undefined, 
         timeEaten: undefined, 
-        calories: undefined, 
+        calories: 0, 
         carbohydrateContent: 0,
         fatContent: 0, 
         fiberContent: 0,
