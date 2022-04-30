@@ -44,7 +44,9 @@ export default class AddToTracker extends Component {
   }
 
   handleTimeChange(event) {
+    
     this.setState({timeEaten: event.target.value});
+    console.log(timeEaten)
   }
 
   handleCalorieChange(event) {
@@ -143,6 +145,7 @@ export default class AddToTracker extends Component {
           }else{
             $('#alert-placeholder').html("<div class='alert alert-warning' role='alert'>"
                 + "Time needs to be in 24h format!</div>");
+            console.log()    
           }
       }else{
         $('#alert-placeholder').html("<div class='alert alert-warning' role='alert'>"
