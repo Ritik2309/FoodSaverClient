@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import SoocialPanelBox from "./social-post-box";
-import styles from "./styling.module.css" 
+import SocialPanelBox from "./social-post-box";
 
 
 export default class SocialCollection extends Component {
@@ -20,7 +19,7 @@ export default class SocialCollection extends Component {
                 <div key={data} class="list-group">
                   <li class="list-group-item">
                     
-                    <SoocialPanelBox posts={data} />
+                    <SocialPanelBox posts={data} />
                 </li>
                 </div>
                 <br />

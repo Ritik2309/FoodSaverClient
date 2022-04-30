@@ -37,7 +37,12 @@ export default class SocialPanelBox extends Component {
   render() {
     
     const post = this.props.posts;
-    
+    if (post.socialPost.imageLink === null){
+      post.socialPost.imageLink = "/images/NO-IMAGE.PNG";
+    }
+    if (post.socialPost.location === null){
+      post.socialPost.location("location not selected");
+    }
     
     return (     
         <div class="card">
