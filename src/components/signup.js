@@ -66,14 +66,14 @@ export default class signup extends Component {
       }
     }else{
       $('#alert-placeholder').html("<div class='alert alert-danger' role='alert'>"
-      + "Name must be no more & no less than 2 words!</div>");
+      + "Name must be no more & no less than 1 words!</div>");
     }
   }
 
   render() {
     return (
     <div class="bg-secondary px-4 py-4 rounded">
-      <h3>Making us <strong>your fridge manager.</strong></h3>
+      <h3>Making us <strong>your food manager.</strong></h3>
 
       <br/>
 

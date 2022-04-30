@@ -97,7 +97,7 @@ export default class AddToButton extends Component {
 
                     if ((parseInt(nutrients.calories.slice(0, -2)) + getTodaysCalories(this.state.diet)) > calorieLimit){
                     $('#alert-placeholder2').html("<div class='alert alert-warning' role='alert'>"
-                    + "Don't eat that, you'll exceed your daily calorie limit!</div>");
+                    + "you'll exceed your daily calorie limit! are you sure?</div>");
                     withinLimit = false;
                     }
                 }); 

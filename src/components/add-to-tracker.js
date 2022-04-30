@@ -26,11 +26,11 @@ export default class AddToTracker extends Component {
         name: undefined, 
         timeEaten: undefined, 
         calories: undefined, 
-        carbohydrateContent: undefined,
-        fatContent: undefined, 
-        fiberContent: undefined,
-        proteinContent: undefined, 
-        saturatedFatContent: undefined,
+        carbohydrateContent: 0,
+        fatContent: 0, 
+        fiberContent: 0,
+        proteinContent: 0, 
+        saturatedFatContent: 0,
         dateEaten: this.props.dateBeingViewed,
         diet: undefined
     };
@@ -69,6 +69,7 @@ export default class AddToTracker extends Component {
 
   handleSatFatChange(event) {
     this.setState({saturatedFatContent: event.target.value});
+    
   }
 
   async checkWithinCalories(){
