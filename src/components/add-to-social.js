@@ -98,6 +98,8 @@ export default class AddToSocial extends Component {
             
             </div></div>
             <label htmlFor="exampleFormControlTextarea1">currently selected location: {this.state.location} </label>
+            <br />
+            <br />
             <label><Link to={{
             pathname: "/maps"
               }}>
