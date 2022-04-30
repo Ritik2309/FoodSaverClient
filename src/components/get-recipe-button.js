@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import styles from "./styling.module.css"
 import { Link } from 'react-router-dom';
 
 export default class GetRecipeButton extends Component {

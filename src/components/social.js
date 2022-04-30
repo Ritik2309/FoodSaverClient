@@ -4,7 +4,7 @@ import SocialCollection from "./collection.socials";
 import AddToSocial from './add-to-social';
 import axios from "axios";
 import checkLogin from '../utils/checkLogin';
-import {getLocation, getImage} from '../utils/storage';
+import {getLocation, getImage, setLocationStorage, setImageStorage} from '../utils/storage';
 
 export default class Social extends Component {
   constructor(props) {
@@ -19,6 +19,12 @@ export default class Social extends Component {
         let token = checkLogin();
         if (!(token == null)) {
           this.setState({ loggedIn: true });
+          if (imageSelected === null){
+            setImageStorage('/images/NO-IMAGE.PNG')
+          }
+          if (location === null){
+            setLocationStorage('not selected')
+          }
 
           axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
             .then(res => {
