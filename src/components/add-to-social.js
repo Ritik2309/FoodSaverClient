@@ -89,19 +89,11 @@ export default class AddToSocial extends Component {
 
     return (
         <div class="container-fluid">
-          <div id="alert-placeholder"/>
+          
           <div class="col-6 bg-secondary rounded">
-          <div><label htmlFor="exampleFormControlTextarea1" style={{fontWeight: 'bold'}}> <br /> Currently selected image: </label>
-            <br />
-            <br />
-            <img class="float-right" className={styles.recipePreviewSize} src={this.state.imageLink}></img>
-            <br />
-            <br />  
-            <label htmlFor="exampleFormControlTextarea1"style={{fontWeight: 'bold'}}>Search for food images to add to post: <label> <br /> <RecipeImageBar /></label> </label>
-           
+          <div><label htmlFor="exampleFormControlTextarea1" style={{fontWeight: 'bold'}}> <br /> Currently selected image: </label></div>
           </div>
-            </div>
-            <div class="col-6 bg-secondary rounded">
+          <div class="col-6 bg-secondary rounded">
           
             <label htmlFor="exampleFormControlTextarea1" style={{fontWeight: 'bold'}}> <br />currently selected location: </label><br /><label>{this.state.location}<br /></label>
             <label><Link to={{
@@ -109,7 +101,7 @@ export default class AddToSocial extends Component {
               }}>
           <button type="button" class="mx-1 btn btn-primary float-right">Select New Location</button>
           </Link></label>
-            </div>
+          </div>
 
           <form>
             <div class="form-group">
