@@ -104,18 +104,22 @@ export default class AddToSocial extends Component {
           </div>
           <div class="col-6 bg-secondary rounded">
           
-            <label htmlFor="exampleFormControlTextarea1" style={{fontWeight: 'bold'}}> <br />currently selected location: </label><br /><label>{this.state.location}<br /></label>
+            <label htmlFor="exampleFormControlTextarea1" style={{fontWeight: 'bold'}}> <br />currently selected location: </label>
+            <br />
+            <label>{this.state.location}<br/></label>
             <label><Link to={{
             pathname: "/maps"
               }}>
+              <br />
           <button type="button" class="mx-1 btn btn-primary float-right">Select New Location</button>
           </Link></label>
             </div>
             </div>
+            <br />
+            <br />
           <form>
             <div class="form-group">
            
-            
             <br />
             <br />
             
