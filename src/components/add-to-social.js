@@ -97,11 +97,12 @@ export default class AddToSocial extends Component {
             <div><label htmlFor="exampleFormControlTextarea1"> <br /> Currently selected image: <img class="float-right" className={styles.recipePreviewSize} src={this.state.imageLink}></img> <label htmlFor="exampleFormControlTextarea1">Search for food images to add to post: <RecipeImageBar /><br /> </label></label><div>
             
             </div></div>
-            <label htmlFor="exampleFormControlTextarea1">currently selected location: {this.state.location} <button onClick={this.handleButtonClicked.bind(this)} class="float-right" type="submit">Select New Location</button><br /><Link to={{
-                pathname: "/maps"
-            }}>
-            
-            </Link></label>
+            <label htmlFor="exampleFormControlTextarea1">currently selected location: {this.state.location} </label>
+            <label><Link to={{
+            pathname: "/maps"
+              }}>
+          <button type="button" class="mx-1 btn btn-primary float-right">Select New Location</button>
+          </Link></label>
             <br />
             <br />
             
