@@ -18,7 +18,6 @@ export default class SocialCollection extends Component {
                 <>
                 <div key={data} class="list-group">
                   
-                    
                     <SocialPanelBox posts={data} />
                 
                 </div>

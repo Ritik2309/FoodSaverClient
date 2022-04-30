@@ -99,13 +99,16 @@ export default class AddToSocial extends Component {
             <br />  
             <label htmlFor="exampleFormControlTextarea1"style={{fontWeight: 'bold'}}>Search for food images to add to post: <label> <br /> <RecipeImageBar /></label> </label>
            
+          </div>
+            </div>
+            <div class="col-6 bg-secondary rounded">
+          
             <label htmlFor="exampleFormControlTextarea1" style={{fontWeight: 'bold'}}> <br />currently selected location: </label><br /><label>{this.state.location}<br /></label>
             <label><Link to={{
             pathname: "/maps"
               }}>
           <button type="button" class="mx-1 btn btn-primary float-right">Select New Location</button>
           </Link></label>
-          </div>
             </div>
 
           <form>

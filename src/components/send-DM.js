@@ -79,16 +79,18 @@ export default class AddToButton extends Component {
         const message = this.state.message
         const username = this.state.username
         const userID = undefined
+        const entryDate = this.state.entryDate
         let token = checkLogin();
         axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
         .then(res => {
             userID = res.data._id
             axios.post("https://my-food-saver.herokuapp.com/api/directMessage/add_DM", {
             
-            ID: userID,
+            fromID: userID,
             postID: postID,
             message: message,
-            username: username
+            username: username,
+            entryDate: entryDate
 
             });
         });
