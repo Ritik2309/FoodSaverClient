@@ -88,8 +88,8 @@ export default class AddToSocial extends Component {
   render() {
 
     return (
-        <div class="row">
-          
+        <div class="container-fluid">
+          <div class="row">
           <div id="alert-placeholder"/>
           <div class="col-6 bg-secondary rounded">
           <div><label htmlFor="exampleFormControlTextarea1" style={{fontWeight: 'bold'}}> <br /> Currently selected image: </label>
@@ -111,7 +111,7 @@ export default class AddToSocial extends Component {
           <button type="button" class="mx-1 btn btn-primary float-right">Select New Location</button>
           </Link></label>
             </div>
-
+            </div>
           <form>
             <div class="form-group">
            
@@ -128,6 +128,7 @@ export default class AddToSocial extends Component {
           </form>
           <button onClick={this.submit} class="mx-3 btn btn-primary float-right">Post Message</button>
           <br />
+          
         </ div>
       ); 
   }
