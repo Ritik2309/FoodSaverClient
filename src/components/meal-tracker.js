@@ -97,6 +97,7 @@ export default class MealTracker extends Component {
 
     return (
       <>
+      
         <br/>
         <div>
           <div id="alert-placeholder2"/>
@@ -128,6 +129,11 @@ export default class MealTracker extends Component {
         <br />
 
         <div class="container-fluid">
+            <br />
+            <h3>Use this section to record your meals.</h3>
+            <p class="text-muted float-left">keep track of what you eat, at what times to track your habits.</p>
+            <br />
+            <br />
             <h5 class="text-muted">Meal Timeline</h5>
 
             <button type="button" class="mx-3 btn btn-success float-right" data-toggle="modal" data-target="#addMealModal">

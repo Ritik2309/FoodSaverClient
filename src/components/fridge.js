@@ -57,9 +57,13 @@ export default class Fridge extends Component {
 
     
     return (
-        <div class="container-fluid"> 
+        <div class="container-fluid">
+        <br />
+        <h3>Your fridge</h3>
+        <p class="text-muted float-left">Use this section to record what foods you currently have in your kitchen to keep track of thier expiray!</p>
         <br />
         <br />
+        
         <button type="button" class="mx-3 btn btn-success float-right" data-toggle="modal" data-target="#addFoodModal">
             Add food
           </button>
@@ -68,8 +72,6 @@ export default class Fridge extends Component {
 
           <h2>Meat</h2>
 
-          
-          
           <div class="modal fade" id="addFoodModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">

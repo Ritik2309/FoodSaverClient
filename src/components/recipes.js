@@ -26,6 +26,7 @@ export default class Recipes extends Component {
 
     return (
     <div class="container">
+        <br />
         <RecipeSearchBar />
         
         <h3> Recommended recipes </h3>
