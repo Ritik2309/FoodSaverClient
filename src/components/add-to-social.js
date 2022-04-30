@@ -88,7 +88,8 @@ export default class AddToSocial extends Component {
   render() {
 
     return (
-        <div class="container-fluid">
+        <div class="row">
+          
           <div id="alert-placeholder"/>
           <div class="col-6 bg-secondary rounded">
           <div><label htmlFor="exampleFormControlTextarea1" style={{fontWeight: 'bold'}}> <br /> Currently selected image: </label>
