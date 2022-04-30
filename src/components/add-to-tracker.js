@@ -46,7 +46,7 @@ export default class AddToTracker extends Component {
   handleTimeChange(event) {
     
     this.setState({timeEaten: event.target.value});
-    console.log(timeEaten)
+    console.log(this.state.timeEaten)
   }
 
   handleCalorieChange(event) {
