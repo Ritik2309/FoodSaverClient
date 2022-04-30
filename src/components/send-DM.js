@@ -56,7 +56,7 @@ export default class AddToButton extends Component {
 
 
     handleUserInputChange(event) {
-        this.setState({userInput: event.target.value});
+        this.setState({message: event.target.value});
     }
 
     updateModal() {
@@ -67,7 +67,7 @@ export default class AddToButton extends Component {
         
 
         modal.find('#mutableInput').on('input', 
-        () => {this.setState.userInput = modal.find('#mutableInput').val();});
+        () => {this.setState.message = modal.find('#mutableInput').val();});
 
         modal.find('#submitButton').on("click", this.submit);
         
