@@ -101,9 +101,9 @@ export default class AddToButton extends Component {
         return (
         <>
             {(this.state.loggedIn) &&
-            <>
-                <button onClick={this.submit} class="my-2 mx-2 btn btn-dark float-right" type="button" data-toggle="modal" data-target="#sendDM">
-                Send DM
+            <>  
+                <button onClick={this.updateModal} class="my-2 mx-2 btn btn-dark float-right" type="button" data-toggle="modal" data-target="#sendDM" >
+                Send DM 
                 </button>
             </>
             }
