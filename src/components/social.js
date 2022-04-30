@@ -19,10 +19,10 @@ export default class Social extends Component {
         let token = checkLogin();
         if (!(token == null)) {
           this.setState({ loggedIn: true });
-          if (imageSelected === null){
+          if (this.state.imageSelected === null){
             setImageStorage('/images/NO-IMAGE.PNG')
           }
-          if (location === null){
+          if (this.state.location === null){
             setLocationStorage('not selected')
           }
 
