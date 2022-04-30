@@ -92,7 +92,7 @@ export default class AddToSocial extends Component {
         <div class="container-fluid">
           <div class="row">
           <div id="alert-placeholder"/>
-          <div class="col-6 bg-secondary rounded">
+          <div class="col-6 bg-secondary">
           <div><label htmlFor="exampleFormControlTextarea1" style={{fontWeight: 'bold'}}> <br /> Currently selected image: </label>
             <br />
             <br />
@@ -103,7 +103,7 @@ export default class AddToSocial extends Component {
            
           </div>
           </div>
-          <div class="col-6 bg-secondary rounded">
+          <div class="col-6 bg-secondary">
           
             <label htmlFor="exampleFormControlTextarea1" style={{fontWeight: 'bold'}}> <br />currently selected location: </label>
             <br />
@@ -124,7 +124,7 @@ export default class AddToSocial extends Component {
             <br />
             <br />
             
-              <label htmlFor="exampleFormControlTextarea1">Then enter a message to post:</label>
+              <label htmlFor="exampleFormControlTextarea1">Enter a message to post:</label>
               
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value={this.setState.newMessage}  onChange={this.handlenewMessage.bind(this)}  >
               </textarea>
