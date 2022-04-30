@@ -39,6 +39,7 @@ export default class SocialPanelBox extends Component {
                 <ReplyToPost reply={post}/>
                 <br></br>
                 <RemovePost post={post}/>
+                
                 <sendDM postID={post._id} username={post.socialPost.username}/> 
                 
                 
