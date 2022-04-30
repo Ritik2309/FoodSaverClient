@@ -10,6 +10,12 @@ export default class Social extends Component {
   constructor(props) {
     super(props);
     console.log(props)
+    if (getImage("image") === null){
+      setImageStorage('/images/NO-IMAGE.PNG')
+    }
+    if (getLocation("location") === null){
+      setLocationStorage('not selected')
+    }
     this.state = { isLoading: true, posts: undefined, imageSelected: getImage("image"), location: getLocation("location")};
     console.log(this.state.location)
   }
@@ -19,12 +25,7 @@ export default class Social extends Component {
         let token = checkLogin();
         if (!(token == null)) {
           this.setState({ loggedIn: true });
-          if (this.state.imageSelected === null){
-            setImageStorage('/images/NO-IMAGE.PNG')
-          }
-          if (this.state.location === null){
-            setLocationStorage('not selected')
-          }
+          
 
           axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
             .then(res => {
