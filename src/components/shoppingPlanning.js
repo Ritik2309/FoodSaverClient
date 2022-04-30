@@ -43,8 +43,11 @@ export default class shoppingPlan extends Component {
 
     return (
     <div class="container">
-        <br />
-        <br />
+          <br />
+          <h3>Welcome to our BMI Calculator.</h3>
+          <p class="text-muted float-left">This calculator is for ages 18+ only, it's otherwise inaccurate.</p>
+          <br />
+          <br />
         <h3>Add to shopping list</h3>
         <AddToShopping />
         <h3> Shopping list </h3>
