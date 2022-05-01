@@ -8,7 +8,6 @@ export default class SocialCollection extends Component {
  
     const posts = this.props.posts;
     
-    posts.reverse();
     
       return (
         <>
