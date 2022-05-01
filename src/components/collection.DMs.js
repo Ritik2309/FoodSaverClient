@@ -8,8 +8,6 @@ export default class DMCollection extends Component {
  
     const messages = this.props.messages;
     
-    messages.reverse();
-    
       return (
         <>
         {messages.map((data, index) => {
