@@ -37,7 +37,7 @@ export default class sendDM extends Component {
 
         this.state = {postID: this.props.postID,
                     toUserName: this.props.username,
-                    message: undefined,
+                    message: "",
                     entryDate: getDateTime() 
                     };
 
@@ -53,8 +53,6 @@ export default class sendDM extends Component {
           this.setState({ loggedIn: true });
         }
     }
-
-
 
     handleMessageChange(event) {
         this.setState({message: event.target.value});
@@ -101,6 +99,7 @@ export default class sendDM extends Component {
           <div id='alert-placeholder'/>
 
           <form>
+              
             <div class="form-group">
               <h5 for="inputMessage">Message: </h5>
               <input class="form-control" id="inputMessage" placeholder="(e.g. Hi I saw your post...)" 

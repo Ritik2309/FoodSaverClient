@@ -18,7 +18,7 @@ export default class SocialPanelBox extends Component {
       
 
     
-}
+  }
 
   render() {
     
@@ -36,10 +36,10 @@ export default class SocialPanelBox extends Component {
                 <h5 class=" card-text"> {post.socialPost.username} {post.socialPost.entryDate}  </h5>
                 <p >Post: <p class="card-title" style={{fontWeight: 'bold'}}>{post.socialPost.postMessage}</p>  </p>
                 <p >Suggested meet up Location: <p class="card-title" style={{fontWeight: 'bold'}}>{post.socialPost.location}</p></p>
-                <button type="button" class="mx-3 btn btn-success float-right" data-toggle="modal" data-target="#sendDM">
+                <button type="button" class="mx-3 btn btn-success float-right" data-toggle="modal" data-target="#send-DM">
                   Send DM
                 </button>
-                <div class="modal fade" id="sendDM" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+                <div class="modal fade" id="send-DM" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
