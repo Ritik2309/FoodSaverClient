@@ -36,7 +36,7 @@ export default class SocialPanelBox extends Component {
                 <h5 class=" card-text"> {Post.socialPost.username} {Post.socialPost.entryDate}  </h5>
                 <p >Post: <p class="card-title" style={{fontWeight: 'bold'}}>{Post.socialPost.postMessage}</p>  </p>
                 <p >Suggested meet up Location: <p class="card-title" style={{fontWeight: 'bold'}}>{Post.socialPost.location}</p></p>
-                <button type="button" class="mx-3 btn btn-success float-right" data-toggle="modal" data-target="#send-DM">
+                <button type="button" class=" btn btn-success float-right" data-toggle="modal" data-target="#send-DM">
                   Send DM
                 </button>
                 <div class="modal fade" id="send-DM" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
