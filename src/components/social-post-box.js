@@ -22,20 +22,20 @@ export default class SocialPanelBox extends Component {
 
   render() {
     
-    const post = this.props.posts;
-    if (post.socialPost.imageLink === null){
-      post.socialPost.imageLink = "/images/NO-IMAGE.PNG";
+    const Post = this.props.posts;
+    if (Post.socialPost.imageLink === null){
+      Post.socialPost.imageLink = "/images/NO-IMAGE.PNG";
     }
-    if (post.socialPost.location === null){
-      post.socialPost.location("location not selected");
+    if (Post.socialPost.location === null){
+      Post.socialPost.location("location not selected");
     }
     
     return (     
         <div class="card">
-                <img src={post.socialPost.imageLink} width={400} height={400} class="card-img-top"/>
-                <h5 class=" card-text"> {post.socialPost.username} {post.socialPost.entryDate}  </h5>
-                <p >Post: <p class="card-title" style={{fontWeight: 'bold'}}>{post.socialPost.postMessage}</p>  </p>
-                <p >Suggested meet up Location: <p class="card-title" style={{fontWeight: 'bold'}}>{post.socialPost.location}</p></p>
+                <img src={Post.socialPost.imageLink} width={400} height={400} class="card-img-top"/>
+                <h5 class=" card-text"> {Post.socialPost.username} {Post.socialPost.entryDate}  </h5>
+                <p >Post: <p class="card-title" style={{fontWeight: 'bold'}}>{Post.socialPost.postMessage}</p>  </p>
+                <p >Suggested meet up Location: <p class="card-title" style={{fontWeight: 'bold'}}>{Post.socialPost.location}</p></p>
                 <button type="button" class="mx-3 btn btn-success float-right" data-toggle="modal" data-target="#send-DM">
                   Send DM
                 </button>
@@ -50,22 +50,22 @@ export default class SocialPanelBox extends Component {
                       </div>
                       <div class="modal-body">
                         
-                      <DM/>
+                      <DM post={Post}/>
                       </div>
                     </div>
                   </div>
                 </div>
                 
                 
-                <ReplyToPost reply={post}/>
+                <ReplyToPost reply={Post}/>
                 <br></br>
-                <RemovePost post={post}/>
+                <RemovePost post={Post}/>
                 
                 
                 
                 
           <h5 class="card-title"> Replies: </h5>
-          {post.socialPost.replies.map((data, index) => {
+          {Post.socialPost.replies.map((data, index) => {
               if (data) {
                 return (
                   <>

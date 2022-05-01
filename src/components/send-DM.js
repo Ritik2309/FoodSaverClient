@@ -33,6 +33,7 @@ function getDateTime() {
 export default class senddm extends Component {
     constructor(props) {
         super(props);
+        console.log(this.props.post)
         const post = this.props.post;
         this.state = {postID: post._id,
                     toUserName: post.socialPost.username,
