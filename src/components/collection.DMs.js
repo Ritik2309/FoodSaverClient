@@ -8,7 +8,7 @@ export default class DMCollection extends Component {
  
     const messages = this.props.messages;
     let messagesArray = messages.split(" ");
-    print(messagesArray)
+    console.log(messagesArray)
 
   //     return (
   //       <>
