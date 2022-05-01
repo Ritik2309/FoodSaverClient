@@ -36,6 +36,7 @@ export default class senddm extends Component {
         super(props);
         
         const post = this.props.post;
+        console.log(post._id)
         this.state = {postID: post._id,
                     toUserName: post.socialPost.username,
                     message: "example message",
@@ -91,7 +92,7 @@ export default class senddm extends Component {
               value={this.state.message} onChange={this.handleMessageChange.bind(this)}/>
             </div>
           </form>
-          <button onClick={this.submit} class="mx-3 btn btn-success float-right">Send DM</button>
+          <button onClick={this.submit(this)} class="mx-3 btn btn-success float-right">Send DM</button>
           <br />
         </ div>
       ); 
