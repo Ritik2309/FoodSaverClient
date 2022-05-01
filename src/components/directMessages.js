@@ -4,6 +4,7 @@ import AddToShopping from './send-DM';
 import ShoppingCollection from './collection.messages';
 import axios from "axios";
 import checkLogin from '../utils/checkLogin';
+import FoodCollection from './collection.messages';
 
 export default class directMessages extends Component {
   constructor(props) {
@@ -38,7 +39,7 @@ export default class directMessages extends Component {
         <br />
         <br />
         <h3> Your DMs </h3>
-        <ShoppingCollection shoppingList={shoppingList} />
+        <DMCollection shoppingList={shoppingList} />
         <br />
         <br />
 
