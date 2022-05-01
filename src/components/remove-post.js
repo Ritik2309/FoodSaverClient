@@ -26,14 +26,12 @@ export default class RemovePost extends Component {
     let token = checkLogin();
             axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
               .then(res =>{
-                this.setState({userID: res.data._id})
+                this.setState({UserID: res.data._id})
               })
   }
 
 
   submit(){
-   
-            
             axios.post("https://my-food-saver.herokuapp.com/api/Social_posts/remove_post", {
               ID: this.state.post._id
             });
@@ -45,7 +43,7 @@ export default class RemovePost extends Component {
     
 
   render() {
-    if(this.state.post.socialPost.userID === this.state.userID){
+    if(this.state.post.socialPost.userID === this.state.UserID){
       return (
         <div class="container-fluid">
           <div id="alert-placeholder"/>
