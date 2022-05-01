@@ -69,9 +69,8 @@ export default class senddm extends Component {
             username: username,
             entryDate: entryDate
 
-            })
-            $('#alert-placeholder').html("<div class='alert alert-success' role='alert'>"
-            + "Sign up successful!</div>");
+            }); $('#alert-placeholder').html("<div class='alert alert-success' role='alert'>"
+            + "DM sent!</div>");
             
         });
     }
@@ -81,11 +80,11 @@ export default class senddm extends Component {
 
     return (
         <div class="container-fluid">
-          <div id="alert-placeholder"/>
+          
 
           <form>
             <div class="form-group">
-                
+            <div id="alert-placeholder"/>
               <label htmlFor="exampleFormControlTextarea1">Enter message:</label>
               <input class="form-control" id="inputName" placeholder="(e.g. Breaded Chicken Steak)" 
               value={this.state.message} onChange={this.handleMessageChange.bind(this)}/>
