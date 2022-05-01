@@ -98,7 +98,7 @@ export default class ReplyToDM extends Component {
               value={this.state.message} onChange={this.handleMessageChange.bind(this)}/>
             </div>
           </form>
-          <button onClick={this.submit(this)} class="mx-3 btn btn-success float-right">Send DM</button>
+          <button onClick={this.submit()} class="mx-3 btn btn-success float-right">Send DM</button>
           <br />
         </ div>
       ); 
