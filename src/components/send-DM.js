@@ -30,7 +30,6 @@ function getDateTime() {
      return dateTime;
 }
 
-
 export default class sendDM extends Component {
     constructor(props) {
         super(props);
@@ -42,34 +41,14 @@ export default class sendDM extends Component {
                     };
 
         this.submit = this.submit.bind(this);
-        this.updateModal = this.updateModal.bind(this);
+        this.handleMessageChange = this.handleMessageChange.bind(this);
         console.log('sendDM constructor')
-    }
-
-    componentDidMount() {
-        let token = checkLogin();
-    
-        if (!(token == null)) {
-          this.setState({ loggedIn: true });
-        }
     }
 
     handleMessageChange(event) {
         this.setState({message: event.target.value});
     }
-    async send(){
-        this.updateModal()
-    }
-
-    updateModal() {
-        var modal = this.state.context.find('#sendDM');
-        modal.find('#inputMessage').on('input', 
-        () => {this.setState.message = modal.find('#inputMessage').val();});
-
-        
-    }
-
-    //validation needed
+ 
     submit(){
         const postID = this.state.postID
         const message = this.state.message
@@ -99,12 +78,13 @@ export default class sendDM extends Component {
           <div id='alert-placeholder'/>
 
           <form>
+          
               
             <div class="form-group">
               <h5 for="inputMessage">Message: </h5>
               <input class="form-control" id="inputMessage" placeholder="(e.g. Hi I saw your post...)" 
               value={this.state.message} onChange={this.handleMessageChange.bind(this)}/>
-            </div> 
+            </div>
 
           </form>
 
