@@ -92,7 +92,7 @@ export default class AddToSocial extends Component {
         <div class="container-fluid">
           <div class="row">
           <div id="alert-placeholder"/>
-          <div class="col-6 bg-secondary">
+          <div class="col-6 bg-info">
           <div><label htmlFor="exampleFormControlTextarea1" style={{fontWeight: 'bold'}}> <br /> Currently selected image: </label>
             <br />
             <br />
@@ -103,7 +103,7 @@ export default class AddToSocial extends Component {
            
           </div>
           </div>
-          <div class="col-6 bg-secondary">
+          <div class="col-6 bg-info">
           
             <label htmlFor="exampleFormControlTextarea1" style={{fontWeight: 'bold'}}> <br />currently selected location: </label>
             <br />

@@ -63,7 +63,7 @@ export default class Social extends Component {
         <AddToSocial posts={posts} image = {imageSelected} location = {location}/>
         <h3> Posts </h3>
         <br />
-        <SocialCollection posts={posts}/> 
+        <SocialCollection posts={posts}/>
         <br />
 
     </ div>
