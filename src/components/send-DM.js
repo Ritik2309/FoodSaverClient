@@ -85,9 +85,9 @@ export default class senddm extends Component {
 
           <form>
             <div class="form-group">
-            
-              <label htmlFor="exampleFormControlTextarea1">Enter message:</label>
               <div id="alert-placeholder-sendDM"/>
+              <label htmlFor="exampleFormControlTextarea1">Enter message:</label>
+              
               <input class="form-control" id="inputName" placeholder="(e.g. Breaded Chicken Steak)" 
               value={this.state.message} onChange={this.handleMessageChange.bind(this)}/>
             </div>
