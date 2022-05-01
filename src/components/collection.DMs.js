@@ -5,8 +5,8 @@ import DMPanelBox from "./DM-post-box";
 
 export default class DMCollection extends Component {
   render() {
- 
-    const messages = this.props.messages;
+    console.log(this.props.allMessages)
+    let messages = this.props.allMessages;
     
       return (
         <>

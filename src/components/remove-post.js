@@ -27,7 +27,7 @@ export default class RemovePost extends Component {
             axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
               .then(res =>{
                 this.setState({UserID: res.data._id})
-                console.log('userid: ', this.state.UserID)
+                
               })
   }
 

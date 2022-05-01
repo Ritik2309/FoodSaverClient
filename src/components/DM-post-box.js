@@ -10,8 +10,8 @@ export default class DMPanelBox extends Component {
     return (     
         
             <div class="card-body">
-                <h5 class="card-title"> {message.username} {message.entryDate} </h5>
-                <p >Message: {message.message}</p>
+                <h5 class="card-title"style={{fontWeight: 'bold'}} > From: {message.directMessage.username} sent at: {message.directMessage.entryDate} </h5>
+                <p style={{fontWeight: 'bold'}}>Message: {message.directMessage.message}</p>
                 <br></br>
             </div>
         

@@ -7,7 +7,7 @@ import DMCollection from './collection.DMs';
 export default class directMessages extends Component {
   constructor(props) {
     super(props);
-    this.state = { blocked: undefined, messages: undefined};
+    this.state = {isLoading: true, loggedIn: undefined, blocked: undefined, messages: undefined};
   }
   
   componentDidMount() {
@@ -15,15 +15,18 @@ export default class directMessages extends Component {
       let token = checkLogin();
       
       if (!(token == null)) {
-        this.setState({ loggedIn: true });
-
+        this.setState({ loggedIn: true }); 
         axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
           .then(res => {
               const ID = res.data._id
+              console.log(ID)
               axios.post('https://my-food-saver.herokuapp.com/api/directMessage/load_DMs', {ID:ID})
                 .then(result=>{
-                  this.setState({messages: result})
-                  console.log(this.state.messages)
+                  
+                  
+                  this.setState({messages: result.data})
+                  
+                  this.setState({ isLoading: false });
                 })
 
           });
@@ -32,7 +35,7 @@ export default class directMessages extends Component {
   }
 
   render() {
-    const { isLoading, messages } = this.state;
+    const { isLoading,loggedIn,blocked, messages} = this.state;
     if (isLoading) {
       return <img class="rounded mx-auto d-block" src="/images/LOADING.gif"/>;
     } 
@@ -42,7 +45,7 @@ export default class directMessages extends Component {
         <br />
         <br />
         <h3> Your DMs </h3>
-        <DMCollection messages={messages} />
+        <DMCollection allMessages ={messages} />
         <br />
         <br />
 
