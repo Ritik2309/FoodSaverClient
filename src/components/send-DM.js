@@ -43,6 +43,7 @@ export default class sendDM extends Component {
 
         this.submit = this.submit.bind(this);
         this.updateModal = this.updateModal.bind(this);
+        console.log('sendDM constructor')
     }
 
     componentDidMount() {

@@ -36,11 +36,34 @@ export default class SocialPanelBox extends Component {
                 <h5 class=" card-text"> {post.socialPost.username} {post.socialPost.entryDate}  </h5>
                 <p >Post: <p class="card-title" style={{fontWeight: 'bold'}}>{post.socialPost.postMessage}</p>  </p>
                 <p >Suggested meet up Location: <p class="card-title" style={{fontWeight: 'bold'}}>{post.socialPost.location}</p></p>
+                <button type="button" class="mx-3 btn btn-success float-right" data-toggle="modal" data-target="#sendDM">
+                  Send DM
+                </button>
+
+                <br />
+
+                <div class="modal fade" id="addFoodModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title" id="modalTitle">Send DM</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                      <sendDM postID={post._id} username={post.socialPost.username} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                
                 <ReplyToPost reply={post}/>
                 <br></br>
                 <RemovePost post={post}/>
                 
-                <sendDM postID={post._id} username={post.socialPost.username}/> 
+                
                 
                 
           <h5 class="card-title"> Replies: </h5>
