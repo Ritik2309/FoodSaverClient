@@ -30,7 +30,7 @@ function getDateTime() {
      return dateTime;
 }
 
-export default class sendDM extends Component {
+export default class senddm extends Component {
     constructor(props) {
         super(props);
         const post = this.props.post;

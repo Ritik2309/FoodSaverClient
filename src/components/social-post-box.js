@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import ReplyPanelBox from './reply-post-box'
 import ReplyToPost from './reply-to-post';
-import sendDM from './send-DM';
+import DM from './send-DM';
 import checkLogin from '../utils/checkLogin';
 import axios from 'axios';
 import RemovePost from './remove-post';
@@ -49,7 +49,8 @@ export default class SocialPanelBox extends Component {
                         </button>
                       </div>
                       <div class="modal-body">
-                      <sendDM post={post} />
+                        
+                      <DM/>
                       </div>
                     </div>
                   </div>
