@@ -39,10 +39,7 @@ export default class SocialPanelBox extends Component {
                 <button type="button" class="mx-3 btn btn-success float-right" data-toggle="modal" data-target="#sendDM">
                   Send DM
                 </button>
-
-                <br />
-
-                <div class="modal fade" id="addFoodModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+                <div class="modal fade" id="sendDM" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">

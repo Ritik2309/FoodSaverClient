@@ -56,7 +56,7 @@ export default class sendDM extends Component {
 
 
 
-    handleUserInputChange(event) {
+    handleMessageChange(event) {
         this.setState({message: event.target.value});
     }
     async send(){
@@ -65,15 +65,9 @@ export default class sendDM extends Component {
 
     updateModal() {
         var modal = this.state.context.find('#sendDM');
-        modal.find('.modal-title').text("Send DM");
+        modal.find('#inputMessage').on('input', 
+        () => {this.setState.message = modal.find('#inputMessage').val();});
 
-        modal.find('.toUserName').text(this.state.username);
-        
-
-        modal.find('#mutableInput').on('input', 
-        () => {this.setState.message = modal.find('#mutableInput').val();});
-
-        modal.find('#submitButton').on("click", this.submit);
         
     }
 
@@ -103,49 +97,23 @@ export default class sendDM extends Component {
 
     render() {
         return (
-            <>
-                {(this.state.loggedIn) &&
-                <>
-                    
-                    <button onClick={this.send} class="my-2 mx-2 btn btn-dark float-right" type="button" data-toggle="modal" data-target="#sendDM">
-                    Send DM
-                    </button>
-                </>
-                }
-                <div class="modal fade" id="sendDM" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h3 class="modal-title" id="modalTitle"></h3>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body" id="modalBody">
-                                <div id="alert-placeholder2" />
+        <div class="container-fluid">
+          <div id='alert-placeholder'/>
 
-                                <br/>
+          <form>
+            <div class="form-group">
+              <h5 for="inputMessage">Message: </h5>
+              <input class="form-control" id="inputMessage" placeholder="(e.g. Hi I saw your post...)" 
+              value={this.state.message} onChange={this.handleMessageChange.bind(this)}/>
+            </div> 
 
-                                <h5>Name:</h5>
-                                <div class="toUserName"/>
+          </form>
 
-                                
+          <button onClick={this.submit} type="Submit" class="mx-3 btn btn-success float-right">Send DM</button>
 
-                                <br/>
-                                
-                                <form>
-                                    <div class="form-group">
-                                        <h5 class="inputHeader" for="addToInput"/>
-                                        <input class="form-control" id="mutableInput" onChange={this.handleUserInputChange.bind(this)}/>
-                                    </div> 
-                                </form>
+          <br />
 
-                                <button id="submitButton" class="mx-3 btn btn-secondary float-right">Send DM</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </>
+        </ div>
         )
     }
 }
