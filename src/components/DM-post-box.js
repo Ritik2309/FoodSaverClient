@@ -57,7 +57,7 @@ export default class DMPanelBox extends Component {
                     Reply
                   </button>
                 <br></br>
-                <button class="mx-3 btn btn-danger btn-sm float-right" type="submit" onClick={this.blockUser()}>Block User</button>
+                <button class="mx-3 btn btn-danger btn-sm float-right" type="submit" onClick={this.blockUser(this)}>Block User</button>
             </div>
             </div>
             </div>
