@@ -43,7 +43,6 @@ export default class senddm extends Component {
                     entryDate: getDateTime() 
                     };
 
-        this.submit = this.submit.bind(this);
         this.handleMessageChange = this.handleMessageChange.bind(this);
         console.log('sendDM constructor')
     }
