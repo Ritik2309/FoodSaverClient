@@ -55,8 +55,6 @@ export default class SocialPanelBox extends Component {
                     </div>
                   </div>
                 </div>
-                
-                
                 <ReplyToPost reply={Post}/>
                 <br></br>
                 <RemovePost post={Post}/>
