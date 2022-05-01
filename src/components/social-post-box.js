@@ -29,12 +29,14 @@ export default class SocialPanelBox extends Component {
     
     return (     
         <div class="card">
+          
                 <img src={Post.socialPost.imageLink} width={400} height={400} class="card-img-top"/>
                 <h5 class=" card-text"> {Post.socialPost.username} {Post.socialPost.entryDate}  </h5>
                 <p >Post: <p class="card-title" style={{fontWeight: 'bold'}}>{Post.socialPost.postMessage}</p>  </p>
                 <p >Suggested meet up Location: <p class="card-title" style={{fontWeight: 'bold'}}>{Post.socialPost.location}</p></p>
                 
                 <div class="modal fade" id="send-DM" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+                  
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">

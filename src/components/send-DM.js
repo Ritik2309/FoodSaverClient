@@ -68,7 +68,9 @@ export default class senddm extends Component {
             username: username,
             entryDate: entryDate
 
-            });
+            }).$('#alert-placeholder').html("<div class='alert alert-success' role='alert'>"
+            + "Sign up successful!</div>");
+            
         });
     }
 
