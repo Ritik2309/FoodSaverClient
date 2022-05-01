@@ -33,7 +33,7 @@ function getDateTime() {
 export default class senddm extends Component {
     constructor(props) {
         super(props);
-        console.log(this.props.post)
+        
         const post = this.props.post;
         this.state = {postID: post._id,
                     toUserName: post.socialPost.username,
@@ -82,9 +82,10 @@ export default class senddm extends Component {
 
           <form>
             <div class="form-group">
+                
               <label htmlFor="exampleFormControlTextarea1">Enter message:</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" value={this.state.message}  onChange={this.handleMessageChange(this)}>
-              </textarea>
+              <input class="form-control" id="inputName" placeholder="(e.g. Breaded Chicken Steak)" 
+              value={this.state.message} onChange={this.handleMessageChange.bind(this)}/>
             </div>
           </form>
           <button onClick={this.submit} class="mx-3 btn btn-success float-right">Send DM</button>
