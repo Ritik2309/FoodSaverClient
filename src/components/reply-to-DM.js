@@ -60,28 +60,26 @@ export default class ReplyToDM extends Component {
   submit(){
             const DMid = this.state.DMid
             const message = this.state.message
-            const username = this.state.username
             const entryDate = this.state.entryDate
 
             let token = checkLogin();
             axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
             .then(res => {
+                console.log(res.data)
                 const userID = res.data._id
-                this.setState({username: res.data.name})
+                const username = res.data.name
                 axios.post("https://my-food-saver.herokuapp.com/api/directMessage/reply_DM", {
                 
                 fromID: userID,
-                toID: undefined,
+                DMid: DMid,
                 message: message,
                 username: username,
                 entryDate: entryDate
 
                 });
             });
-            sleep(100)
-            setTimeout(function(){
-              window.location.reload(); //refresh page
-            });
+            $('#alert-placeholder').html("<div class='alert alert-success' role='success'>"
+                    + "DM sent!");
         }
     
 
