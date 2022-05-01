@@ -28,7 +28,7 @@ export default class DMPanelBox extends Component {
   render() {
 
     const message = this.props.message;
-
+    console.log('message ID:', message._id)
     return (     
           <div class="col-6 bg-light rounded">
             <div class="card-body">
