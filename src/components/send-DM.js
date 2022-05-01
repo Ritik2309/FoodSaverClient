@@ -107,7 +107,7 @@ export default class senddm extends Component {
           <form>
             <div class="form-group">
               <label htmlFor="exampleFormControlTextarea1">Enter message:</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" value={this.state.message}  onChange={this.handleMessageChange.bind(this)}>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" value={this.state.message}  onChange={this.handleMessageChange(this)}>
               </textarea>
             </div>
           </form>
