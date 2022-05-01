@@ -55,7 +55,7 @@ export default class senddm extends Component {
         const postID = this.state.postID
         const message = this.state.message
         const username = this.state.username
-        const userID = undefined
+        const userID = ""
         const entryDate = this.state.entryDate
         let token = checkLogin();
         axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
@@ -73,30 +73,6 @@ export default class senddm extends Component {
         });
     }
 
-
-    // render() {
-    //     return (
-    //     <div class="container-fluid">
-    //       <div id='alert-placeholder'/>
-
-    //       <form>
-          
-              
-    //         <div class="form-group">
-    //           <h5 for="inputMessage">Message: </h5>
-    //           <input class="form-control" id="inputMessage" placeholder="(e.g. Hi I saw your post...)" 
-    //           value={this.state.message} onChange={this.handleMessageChange.bind(this)}/>
-    //         </div>
-
-    //       </form>
-
-    //       <button onClick={this.submit} type="Submit" class="mx-3 btn btn-success float-right">Send DM</button>
-
-    //       <br />
-
-    //     </ div>
-    //     )
-    // }
     
   render() {
 
