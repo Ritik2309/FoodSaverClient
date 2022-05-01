@@ -13,8 +13,6 @@ export default class SocialPanelBox extends Component {
   }
   componentDidMount() {
       
-
-    
   }
 
   render() {
