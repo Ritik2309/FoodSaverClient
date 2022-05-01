@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import {integerCheck, tfTimeCheck} from "../utils/validation";
+import $ from 'jquery'
 import axios from 'axios';
 import checkLogin from '../utils/checkLogin';
 
@@ -68,7 +69,8 @@ export default class senddm extends Component {
             username: username,
             entryDate: entryDate
 
-            }).$('#alert-placeholder').html("<div class='alert alert-success' role='alert'>"
+            })
+            $('#alert-placeholder').html("<div class='alert alert-success' role='alert'>"
             + "Sign up successful!</div>");
             
         });
