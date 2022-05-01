@@ -5,6 +5,7 @@ import Success from "./success";
 import $ from 'jquery';
 import {integerCheck} from "../utils/validation";
 import checkLogin from "../utils/checkLogin";
+import blockedUsers from "./blockedUsers"
 
 export default class Settings extends Component {
   constructor(props) {
@@ -82,7 +83,27 @@ export default class Settings extends Component {
               <Redirect to={"/logout"}/>
               }
               <br/>
+              <button type="button" class="btn btn-dark btn-block" data-toggle="modal" data-target="#blockedUsers-modal" >View blocked users</button>
+
+                <div class="modal fade" id="blockedUsers-modal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content bg-secondary">
+                          <div class="modal-header">
+                              <h3 class="modal-title" id="modalTitle">Blocked Users</h3>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                          </div>
+                          <div class="modal-body" id="modalBody">
+
+                              <blockedUsers/>
+                          </div>
+                      </div>
+                  </div>
+              <br/>
             </div>
+            </div>
+            
             
 
             <div class="col-6 bg-success rounded">
@@ -119,24 +140,22 @@ export default class Settings extends Component {
                   </div>
               </div>
 
-              <br/>
-              <button type="button" class="btn btn-dark btn-block" disabled>Change date format - coming soon!</button>
-              <br/>
+          
             </div>
 
-          </div>
+          
 
-          <br />
+           <br />
 
-          {(this.state.userDataDeleted) &&
-            <Success message={"All fridge and tracker data successfully deleted..."} />
-          }
+           {(this.state.userDataDeleted) &&
+             <Success message={"All fridge and tracker data successfully deleted..."} />
+           }
 
-          {(this.state.limitChanged) &&   
-            <Success message={"Calorie limit successfully set..."}>{$('#kcal-limit-modal').modal('toggle')}</Success>
-          }
-        
+           {(this.state.limitChanged) &&   
+             <Success message={"Calorie limit successfully set..."}>{$('#kcal-limit-modal').modal('toggle')}</Success>
+           }        
         </div>
+      </div>
     );
   }
 }

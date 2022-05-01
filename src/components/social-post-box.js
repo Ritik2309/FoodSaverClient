@@ -44,7 +44,6 @@ export default class SocialPanelBox extends Component {
                         </button>
                       </div>
                       <div class="modal-body">
-                        
                       <DM post={Post}/>
                       </div>
                     </div>
