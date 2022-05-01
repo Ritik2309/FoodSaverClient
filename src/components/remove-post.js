@@ -44,7 +44,7 @@ export default class RemovePost extends Component {
     
 
   render() {
-    if(this.state.post.socialPost.userID){
+    if(this.state.post.userID){
       return (
         <div class="container-fluid">
           <div id="alert-placeholder"/>
