@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import AddToShopping from './send-DM';
-import ShoppingCollection from './collection.messages';
 import axios from "axios";
 import checkLogin from '../utils/checkLogin';
-import FoodCollection from './collection.messages';
+import DMCollection from './collection.DMs';
 
 export default class directMessages extends Component {
   constructor(props) {
@@ -22,6 +20,11 @@ export default class directMessages extends Component {
         axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
           .then(res => {
               const ID = res.data._id
+              axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData', {ID:ID})
+                .then(res=>{
+                  this.setState({messages: res})
+                })
+
           });
         
       }
@@ -29,7 +32,6 @@ export default class directMessages extends Component {
 
   render() {
     const { isLoading, messages } = this.state;
-    console.log(shoppingList);
     if (isLoading) {
       return <img class="rounded mx-auto d-block" src="/images/LOADING.gif"/>;
     } 
@@ -39,7 +41,7 @@ export default class directMessages extends Component {
         <br />
         <br />
         <h3> Your DMs </h3>
-        <DMCollection shoppingList={shoppingList} />
+        <DMCollection messages={messages} />
         <br />
         <br />
 

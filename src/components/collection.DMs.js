@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import SocialPanelBox from "./social-post-box";
+import DMPanelBox from "./DM-post-box";
 
 
 export default class DMCollection extends Component {
   render() {
  
-    const posts = this.props.posts;
+    const messages = this.props.messages;
     
     posts.reverse();
     
@@ -18,7 +18,7 @@ export default class DMCollection extends Component {
                 <>
                 <div key={data} class="list-group">
                   
-                    <SocialPanelBox posts={data} />
+                    <DMPanelBox message={data} />
                 
                 </div>
                 <br />

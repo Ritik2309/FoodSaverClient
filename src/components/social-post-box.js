@@ -3,11 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import ReplyPanelBox from './reply-post-box'
 import ReplyToPost from './reply-to-post';
 import DM from './send-DM';
-import checkLogin from '../utils/checkLogin';
-import axios from 'axios';
 import RemovePost from './remove-post';
-import { Button } from 'antd';
-import { setInStorage } from '../utils/storage';
+
 
 export default class SocialPanelBox extends Component {
   constructor(props) {
