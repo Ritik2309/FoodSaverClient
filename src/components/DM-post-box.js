@@ -2,25 +2,26 @@ import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import ReplyToDM from './reply-to-DM';
 import axios from 'axios';
-import { message } from 'antd';
 import checkLogin from '../utils/checkLogin'
+import sleep from '../utils/refresh';
 
 export default class DMPanelBox extends Component {
 
   blockUser(){
     let token = checkLogin();
-    {axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
+    axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
         .then(res => {
             const userID = res.data._id
             axios.post('https://my-food-saver.herokuapp.com/api/blockedUsers/block_user',{
               userID: userID,
-              DMid: message._id
+              DMid: this.props.message._id
 
             })
         });
-    
-    
-  }
+        // sleep(200)
+        // setTimeout(function(){
+        //   window.location.reload(); //refresh page
+        // });
 }
 
 
