@@ -30,7 +30,7 @@ export default class Social extends Component {
           axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
             .then(res => {
                 
-                axios.get("https://my-food-saver.herokuapp.com/api/Social_posts/load_posts").then(res => {
+                axios.post("https://my-food-saver.herokuapp.com/api/Social_posts/load_posts", {ID: res.data._id}).then(res => {
                   
                   this.setState({ posts: res.data});
                   
