@@ -55,12 +55,11 @@ export default class senddm extends Component {
         const postID = this.state.postID
         const message = this.state.message
         const username = this.state.username
-        const userID = ""
         const entryDate = this.state.entryDate
         let token = checkLogin();
         axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
         .then(res => {
-            userID = res.data._id
+            const userID = res.data._id
             axios.post("https://my-food-saver.herokuapp.com/api/directMessage/send_DM", {
             
             fromID: userID,
