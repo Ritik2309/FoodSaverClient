@@ -37,7 +37,7 @@ export default class senddm extends Component {
         const post = this.props.post;
         this.state = {postID: post._id,
                     toUserName: post.socialPost.username,
-                    message: "",
+                    message: "example message",
                     entryDate: getDateTime() 
                     };
 
