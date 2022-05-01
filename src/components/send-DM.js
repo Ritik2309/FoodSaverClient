@@ -5,30 +5,7 @@ import axios from 'axios';
 import checkLogin from '../utils/checkLogin';
 
 
-function getDateTime() {
-    var now     = new Date(); 
-    var year    = now.getFullYear();
-    var month   = now.getMonth()+1; 
-    var day     = now.getDate();
-    var hour    = now.getHours();
-    var minute  = now.getMinutes();
-     
-    if(month.toString().length == 1) {
-         month = '0'+month;
-    }
-    if(day.toString().length == 1) {
-         day = '0'+day;
-    }   
-    if(hour.toString().length == 1) {
-         hour = '0'+hour;
-    }
-    if(minute.toString().length == 1) {
-         minute = '0'+minute;
-    }
-     
-    var dateTime = year+'/'+month+'/'+day+' Time: '+hour+':'+minute;   
-     return dateTime;
-}
+
 
 export default class sendDM extends Component {
     constructor(props) {
@@ -43,6 +20,30 @@ export default class sendDM extends Component {
         this.submit = this.submit.bind(this);
         this.handleMessageChange = this.handleMessageChange.bind(this);
         console.log('sendDM constructor')
+    }
+    getDateTime() {
+        var now     = new Date(); 
+        var year    = now.getFullYear();
+        var month   = now.getMonth()+1; 
+        var day     = now.getDate();
+        var hour    = now.getHours();
+        var minute  = now.getMinutes();
+         
+        if(month.toString().length == 1) {
+             month = '0'+month;
+        }
+        if(day.toString().length == 1) {
+             day = '0'+day;
+        }   
+        if(hour.toString().length == 1) {
+             hour = '0'+hour;
+        }
+        if(minute.toString().length == 1) {
+             minute = '0'+minute;
+        }
+         
+        var dateTime = year+'/'+month+'/'+day+' Time: '+hour+':'+minute;   
+         return dateTime;
     }
 
     handleMessageChange(event) {
@@ -72,27 +73,46 @@ export default class sendDM extends Component {
     }
 
 
-    render() {
-        return (
-        <div class="container-fluid">
-          <div id='alert-placeholder'/>
+    // render() {
+    //     return (
+    //     <div class="container-fluid">
+    //       <div id='alert-placeholder'/>
 
-          <form>
+    //       <form>
           
               
+    //         <div class="form-group">
+    //           <h5 for="inputMessage">Message: </h5>
+    //           <input class="form-control" id="inputMessage" placeholder="(e.g. Hi I saw your post...)" 
+    //           value={this.state.message} onChange={this.handleMessageChange.bind(this)}/>
+    //         </div>
+
+    //       </form>
+
+    //       <button onClick={this.submit} type="Submit" class="mx-3 btn btn-success float-right">Send DM</button>
+
+    //       <br />
+
+    //     </ div>
+    //     )
+    // }
+    
+  render() {
+
+    return (
+        <div class="container-fluid">
+          <div id="alert-placeholder"/>
+
+          <form>
             <div class="form-group">
-              <h5 for="inputMessage">Message: </h5>
-              <input class="form-control" id="inputMessage" placeholder="(e.g. Hi I saw your post...)" 
-              value={this.state.message} onChange={this.handleMessageChange.bind(this)}/>
+              <label htmlFor="exampleFormControlTextarea1">Enter message:</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" value={this.state.message}  onChange={this.handlenewMessage.bind(this)}>
+              </textarea>
             </div>
-
           </form>
-
-          <button onClick={this.submit} type="Submit" class="mx-3 btn btn-success float-right">Send DM</button>
-
+          <button onClick={this.submit} class="mx-3 btn btn-success float-right">Send DM</button>
           <br />
-
         </ div>
-        )
-    }
+      ); 
+  }
 }
