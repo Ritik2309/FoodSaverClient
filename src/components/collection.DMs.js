@@ -13,11 +13,7 @@ export default class DMCollection extends Component {
           return (
         <>
         
-                <div key={data} class="list-group">
-                  
-                    <DMPanelBox message={data} />
                 
-                </div>
                 <br />
                 <br />
             
