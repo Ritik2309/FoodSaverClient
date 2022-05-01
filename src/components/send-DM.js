@@ -46,6 +46,7 @@ export default class senddm extends Component {
         this.submit = this.submit.bind(this);
         this.handleMessageChange = this.handleMessageChange.bind(this);
         console.log('sendDM constructor')
+        let token = checkLogin();
         axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
         .then(res => {
             this.setState({currentUserID: res.data._id})
@@ -94,7 +95,7 @@ export default class senddm extends Component {
               value={this.state.message} onChange={this.handleMessageChange.bind(this)}/>
             </div>
           </form>
-          {( this.state.post.userID != this.userID) &&
+          {( this.state.post.userID != this.state.userID) &&
             <div>
            <button onClick={this.submit} class="mx-3 btn btn-success float-right">Send DM</button>
            </div>
