@@ -10,6 +10,21 @@ export default class DMCollection extends Component {
     let messagesArray = messages.split(" ");
     console.log(messagesArray)
 
+          return (
+        <>
+        
+                <div key={data} class="list-group">
+                  
+                    <DMPanelBox message={data} />
+                
+                </div>
+                <br />
+                <br />
+            
+        </>
+  );
+    
+
   //     return (
   //       <>
   //       {messages.map((data, index) => {
