@@ -61,7 +61,7 @@ export default class senddm extends Component {
         axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
         .then(res => {
             userID = res.data._id
-            axios.post("https://my-food-saver.herokuapp.com/api/directMessage/add_DM", {
+            axios.post("https://my-food-saver.herokuapp.com/api/directMessage/send_DM", {
             
             fromID: userID,
             postID: postID,
