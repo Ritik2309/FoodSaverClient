@@ -34,9 +34,9 @@ function getDateTime() {
 export default class sendDM extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {postID: this.props.postID,
-                    toUserName: this.props.username,
+        const post = this.props.post;
+        this.state = {postID: post._id,
+                    toUserName: post.socialPost.username,
                     message: "",
                     entryDate: getDateTime() 
                     };

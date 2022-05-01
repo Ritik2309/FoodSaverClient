@@ -49,7 +49,7 @@ export default class SocialPanelBox extends Component {
                         </button>
                       </div>
                       <div class="modal-body">
-                      <sendDM postID={post._id} username={post.socialPost.username} />
+                      <sendDM post={post} />
                       </div>
                     </div>
                   </div>
