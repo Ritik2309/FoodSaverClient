@@ -16,6 +16,7 @@ import Login from "./components/login";
 import Signup from "./components/signup";
 import Logout from "./components/logout";
 import Settings from "./components/settings";
+import directMessages from "./components/directMessages";
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
     <Route path="/logout" component={Logout}/>
     <Route path="/settings" component={Settings}/>
     <Route path="/maps" component={MapContainer}/>
+    <Route path="/directmessages" component={directMessages}/>
     </Router>
     <br />
     <br />

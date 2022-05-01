@@ -7,14 +7,12 @@ export default class DMPanelBox extends Component {
 
     const message = this.props.message;
 
-
     return (     
         
             <div class="card-body">
                 <h5 class="card-title"> {message.username} {message.entryDate} </h5>
                 <p >Message: {message.message}</p>
                 <br></br>
-                
             </div>
         
     );
