@@ -58,7 +58,7 @@ export default class sendDM extends Component {
     handleUserInputChange(event) {
         this.setState({message: event.target.value});
     }
-    async sendDM(){
+    async send(){
         this.updateModal()
     }
 
@@ -106,7 +106,7 @@ export default class sendDM extends Component {
                 {(this.state.loggedIn) &&
                 <>
                     
-                    <button onClick={this.sendDM} class="my-2 mx-2 btn btn-dark float-right" type="button" data-toggle="modal" data-target="#sendDM">
+                    <button onClick={this.send} class="my-2 mx-2 btn btn-dark float-right" type="button" data-toggle="modal" data-target="#sendDM">
                     Send DM
                     </button>
                 </>
