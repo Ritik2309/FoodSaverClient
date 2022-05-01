@@ -50,10 +50,14 @@ export default class SocialPanelBox extends Component {
                     </div>
                   </div>
                 </div>
-                <div>
-                <button class="mx-3 btn btn-success btn-sm"  data-toggle="modal" data-target="#send-DM">
-                  Send DM
-                </button>
+                <div> 
+                  {(!Post.userID) && // for only allowing users to DM others and not themselves from their own posts
+                  <button class="mx-3 btn btn-success btn-sm"  data-toggle="modal" data-target="#send-DM">
+                    Send DM
+                  </button>
+                  }
+                 
+                
                 </div>
                 
                 <ReplyToPost reply={Post}/>

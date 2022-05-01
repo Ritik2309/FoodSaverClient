@@ -36,8 +36,6 @@ export default class senddm extends Component {
         
         const post = this.props.post;
         this.state = {postID: post._id,
-                    postUserID: post.userID,
-                    currentUserID: undefined,
                     toUserName: post.socialPost.username,
                     message: "example message",
                     entryDate: getDateTime() 
@@ -46,11 +44,6 @@ export default class senddm extends Component {
         this.submit = this.submit.bind(this);
         this.handleMessageChange = this.handleMessageChange.bind(this);
         console.log('sendDM constructor')
-        let token = checkLogin();
-        axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
-        .then(res => {
-            this.setState({currentUserID: res.data._id})
-        });
     }
     
 
@@ -61,21 +54,20 @@ export default class senddm extends Component {
     submit(){
         const postID = this.state.postID
         const message = this.state.message
-        const username = this.state.toUserName
+        const username = this.state.username
         const entryDate = this.state.entryDate
-        console.log(postID, message, username, entryDate)
         let token = checkLogin();
         axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
         .then(res => {
             const userID = res.data._id
             axios.post("https://my-food-saver.herokuapp.com/api/directMessage/send_DM", {
             
-            ID: userID,
+            fromID: userID,
             postID: postID,
             message: message,
             username: username,
-            entryDate: entryDate,
-            
+            entryDate: entryDate
+
             });
         });
     }
@@ -95,13 +87,7 @@ export default class senddm extends Component {
               value={this.state.message} onChange={this.handleMessageChange.bind(this)}/>
             </div>
           </form>
-          {( this.state.post.userID != this.state.userID) &&
-            <div>
-           <button onClick={this.submit} class="mx-3 btn btn-success float-right">Send DM</button>
-           </div>
-          }
-          
-         
+          <button onClick={this.submit} class="mx-3 btn btn-success float-right">Send DM</button>
           <br />
         </ div>
       ); 
