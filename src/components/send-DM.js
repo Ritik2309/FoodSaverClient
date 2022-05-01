@@ -54,6 +54,7 @@ export default class senddm extends Component {
     }
  
     submit(){
+        console.log('snet DM')
         const postID = this.state.postID
         const message = this.state.message
         const username = this.state.toUserName
