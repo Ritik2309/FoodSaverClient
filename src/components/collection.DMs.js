@@ -7,40 +7,27 @@ export default class DMCollection extends Component {
   render() {
  
     const messages = this.props.messages;
-    let messagesArray = messages.split(" ");
-    console.log(messagesArray)
-
-          return (
+    
+      return (
         <>
-        
+        {messages.map((data, index) => {
+            if (data) {
+              return (
+                <>
+                <div key={data} class="list-group">
+                  
+                    <DMPanelBox message={data} />
                 
+                </div>
                 <br />
                 <br />
-            
+                </>
+              )	
+            }
+            return null
+        }) }
         </>
   );
-    
-
-  //     return (
-  //       <>
-  //       {messages.map((data, index) => {
-  //           if (data) {
-  //             return (
-  //               <>
-  //               <div key={data} class="list-group">
-                  
-  //                   <DMPanelBox message={data} />
-                
-  //               </div>
-  //               <br />
-  //               <br />
-  //               </>
-  //             )	
-  //           }
-  //           return null
-  //       }) }
-  //       </>
-  // );
     
     
   }
