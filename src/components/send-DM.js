@@ -5,7 +5,30 @@ import axios from 'axios';
 import checkLogin from '../utils/checkLogin';
 
 
-
+function getDateTime() {
+    var now     = new Date(); 
+    var year    = now.getFullYear();
+    var month   = now.getMonth()+1; 
+    var day     = now.getDate();
+    var hour    = now.getHours();
+    var minute  = now.getMinutes();
+     
+    if(month.toString().length == 1) {
+         month = '0'+month;
+    }
+    if(day.toString().length == 1) {
+         day = '0'+day;
+    }   
+    if(hour.toString().length == 1) {
+         hour = '0'+hour;
+    }
+    if(minute.toString().length == 1) {
+         minute = '0'+minute;
+    }
+     
+    var dateTime = year+'/'+month+'/'+day+' Time: '+hour+':'+minute;   
+     return dateTime;
+}
 
 export default class sendDM extends Component {
     constructor(props) {
@@ -21,30 +44,7 @@ export default class sendDM extends Component {
         this.handleMessageChange = this.handleMessageChange.bind(this);
         console.log('sendDM constructor')
     }
-    getDateTime() {
-        var now     = new Date(); 
-        var year    = now.getFullYear();
-        var month   = now.getMonth()+1; 
-        var day     = now.getDate();
-        var hour    = now.getHours();
-        var minute  = now.getMinutes();
-         
-        if(month.toString().length == 1) {
-             month = '0'+month;
-        }
-        if(day.toString().length == 1) {
-             day = '0'+day;
-        }   
-        if(hour.toString().length == 1) {
-             hour = '0'+hour;
-        }
-        if(minute.toString().length == 1) {
-             minute = '0'+minute;
-        }
-         
-        var dateTime = year+'/'+month+'/'+day+' Time: '+hour+':'+minute;   
-         return dateTime;
-    }
+    
 
     handleMessageChange(event) {
         this.setState({message: event.target.value});
