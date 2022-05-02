@@ -54,7 +54,6 @@ export default class AddToSocial extends Component {
   }
 
 
-  
   submit(){
    
             let token = checkLogin();

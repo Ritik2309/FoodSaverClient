@@ -52,7 +52,7 @@ export default class senddm extends Component {
         this.setState({message: event.target.value});
     }
  
-    onSubmit(e){
+    onSubmit(){
         console.log('snet DM')
         const postID = this.state.postID
         const message = this.state.message
