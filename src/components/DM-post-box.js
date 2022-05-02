@@ -7,16 +7,19 @@ import sleep from '../utils/refresh';
 
 export default class DMPanelBox extends Component {
 
-  blockUser(e){
+  constructor(props) {
+    super(props);
+    this.state = { DMid : undefined};
+  }
+
+  blockUser(){
     let token = checkLogin();
     axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
         .then(res => {
             const userID = res.data._id
             axios.post('https://my-food-saver.herokuapp.com/api/blockedUsers/block_user',{
               userID: userID,
-              DMid: this.props.message._id,
-              
-
+              DMid: this.state.DMid,
             })
             console.log('block user req sent')
         });
@@ -30,6 +33,7 @@ export default class DMPanelBox extends Component {
   render() {
 
     const message = this.props.message;
+    this.setState({DMid: message._id})
     console.log('message ID:', message._id)
     return (     
           <div class="col-6 bg-light rounded">
