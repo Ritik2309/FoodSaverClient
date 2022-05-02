@@ -48,7 +48,7 @@ export default class ReplyToDM extends Component {
                     message: "",
                     entryDate: getDateTime() 
                     };
-
+        this.onSubmit = this.onSubmit.bind(this);
         this.handleMessageChange = this.handleMessageChange.bind(this);
   }
 
