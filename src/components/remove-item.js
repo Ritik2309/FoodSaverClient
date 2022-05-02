@@ -36,14 +36,12 @@ export default class RemoveItem extends Component {
                 itemToRemove: this.state.itemName,
                 ID: this.state.UserID
               
-                });
-                
+                }).then(()=>{
+                  setTimeout(function(){
+                         window.location.reload(); //refresh page
+                       });
+                  })
               })
-            
-            sleep(200)
-            setTimeout(function(){
-              window.location.reload(); //refresh page
-            });
         }
     
 

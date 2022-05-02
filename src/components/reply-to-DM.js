@@ -92,12 +92,12 @@ export default class ReplyToDM extends Component {
           <form>
             <div class="form-group">
                 
-              <label htmlFor="exampleFormControlTextarea1">Enter message:</label>
+              <label htmlFor="exampleFormControlTextarea1">Enter reply:</label>
               <input class="form-control" id="inputName" placeholder="(e.g. yes that sounds good!)" 
               value={this.state.message} onChange={this.handleMessageChange.bind(this)}/>
             </div>
           </form>
-          <button onClick={this.onSubmit} class="mx-3 btn btn-success float-right">Send DM</button>
+          <button onClick={this.onSubmit} class="mx-3 btn btn-success float-left">Send DM</button>
           <br />
         </ div>
       ); 

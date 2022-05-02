@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import checkLogin from '../utils/checkLogin';
+import $ from 'jquery';
 
 function orderFoods(foodsEaten){
     foodsEaten.sort((a, b) => (a.timeEaten.slice(0, 2) - b.timeEaten.slice(0, 2)));
@@ -21,13 +22,17 @@ export default class Timeline extends Component {
         axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
         .then(res => {
             const userIDcode = res.data._id;
-            axios.post("https://my-food-saver.herokuapp.com/api/load_data/remove_meal", {meal: mealToRemove, ID: userIDcode});
-            // setTimeout(function(){
-            // window.location.reload(); //refresh page
-            // });
+            axios.post("https://my-food-saver.herokuapp.com/api/load_data/remove_meal", {meal: mealToRemove, ID: userIDcode})
+                .then(()=>{
+                    setTimeout(function(){
+                           window.location.reload(); //refresh page
+                         });
+                })
+            
         });
-      }
-
+         
+    }
+      
     render() {
         const foodsEaten = orderFoods(this.props.foodsEaten) //will be an array of food items read from user database with their props 
         const todaysDate = this.props.todaysDate;
@@ -55,9 +60,11 @@ export default class Timeline extends Component {
                         }
                         {foodsEaten.map(food => {return <>
                         <div class="col-3"> 
+                        <div id="alert-placeholder"/>
                             <dt class="list-group-item">{food.name}
                             <button onClick={() => this.removeMeal(food)} type="button" class="my-1 btn btn-danger float-right">Remove</button>
                             </dt>
+                            
                             <dd class="list-group-item">Time eaten: {food.timeEaten}
                             {(food.nutrients.calories !== undefined) &&
                                 <p class="float-right">{food.nutrients.calories}</p>

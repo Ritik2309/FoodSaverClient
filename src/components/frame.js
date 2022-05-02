@@ -82,6 +82,10 @@ export default class Frame extends Component {
           <button type="button" class="mx-1 btn btn-primary float-right">BMI Calculator</button>
           </Link>
 
+          <Link to="/foodinformation">
+          <button type="button" class="mx-1 btn btn-primary float-right">Food Information</button>
+          </Link>
+
           {(loggedIn === true) &&
           <Link to={{
             pathname: "/tracker",

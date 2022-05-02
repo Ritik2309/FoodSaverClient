@@ -32,12 +32,13 @@ export default class AddToShopping extends Component {
                   axios.post("https://my-food-saver.herokuapp.com/api/shopping/add_item", {
                     name: this.state.itemName,
                     ID: userIDcode
-                  });
+                  }).then(()=>{
+                    setTimeout(function(){
+                           window.location.reload(); //refresh page
+                         });
+                })
             });
-            refresh(450)
-            setTimeout(function(){
-              window.location.reload(); //refresh page
-            });
+           
   }  
 
   render() {

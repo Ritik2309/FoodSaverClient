@@ -17,6 +17,7 @@ import Signup from "./components/signup";
 import Logout from "./components/logout";
 import Settings from "./components/settings";
 import directMessages from "./components/directMessages";
+import foodInformation from "./components/foodInformation";
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
     <Route path="/settings" component={Settings}/>
     <Route path="/maps" component={MapContainer}/>
     <Route path="/directmessages" component={directMessages}/>
+    <Route path="/foodinformation" component={foodInformation}/>
     </Router>
     <br />
     <br />

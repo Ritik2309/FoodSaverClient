@@ -109,7 +109,6 @@ export default class AddToTracker extends Component {
     }
   }
 
-  //validation 
   submit(){
     if(this.checkWithinCalories()){
       if((integerCheck(this.state.calories))&&(integerCheck(this.state.carbohydrateContent))
@@ -136,12 +135,13 @@ export default class AddToTracker extends Component {
                     nutrients: nutrients,
                     dateEaten: this.state.dateEaten,
                     ID: userIDcode
-                  });
-            });
-            sleep(200)
-            setTimeout(function(){
-              window.location.reload(); //refresh page
-            });
+                  }).then(()=>{
+                        setTimeout(function(){
+                           window.location.reload(); //refresh page
+                         });
+                })
+            })
+             
           }else{
             $('#alert-placeholder').html("<div class='alert alert-warning' role='alert'>"
                 + "Time needs to be in 24h format!</div>");
@@ -206,7 +206,7 @@ export default class AddToTracker extends Component {
             </div>
             <br />
           </form>
-          <button onClick={this.submit} class="mx-3 btn btn-secondary float-right">Submit</button>
+          <button onClick={this.submit} class="mx-3 btn btn-success float-right">Submit</button>
           <br />
         </ div>
       ); 
