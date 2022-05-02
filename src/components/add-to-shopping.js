@@ -34,7 +34,7 @@ export default class AddToShopping extends Component {
                     ID: userIDcode
                   });
             });
-            refresh(100)
+            refresh(450)
             setTimeout(function(){
               window.location.reload(); //refresh page
             });

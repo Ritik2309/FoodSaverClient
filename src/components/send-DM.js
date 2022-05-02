@@ -34,12 +34,9 @@ function getDateTime() {
 export default class senddm extends Component {
     constructor(props) {
         super(props);
-        
-        const post = this.props.post;
-        console.log('post:',post._id)
-        this.state = {postID: post._id,
-                    toUserName: post.socialPost.username,
-                    message: "example message",
+        console.log(this.props.postID)
+        this.state = {postID: this.props.postID,
+                    message: "",
                     entryDate: getDateTime() 
                     };
         this.submit = this.submit.bind(this);            
@@ -55,20 +52,21 @@ export default class senddm extends Component {
     submit(){
         console.log('snet DM')
         const postID = this.state.postID
+        
         const message = this.state.message
-        const username = this.state.toUserName
         const entryDate = this.state.entryDate
         let token = checkLogin();
         axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
         .then(res => {
             const userID = res.data._id
+            const username = res.data.name
             axios.post("https://my-food-saver.herokuapp.com/api/directMessage/send_DM", {
-            
-            ID: userID,
-            postID: postID,
-            message: message,
-            username: username,
-            entryDate: entryDate
+                
+                ID: userID,
+                postID: postID,
+                message: message,
+                username: username,
+                entryDate: entryDate
 
             }); 
             
@@ -86,9 +84,9 @@ export default class senddm extends Component {
           <form>
             <div class="form-group">
               <div id="alert-placeholder-sendDM"/>
-              <label htmlFor="exampleFormControlTextarea1">Enter message:</label>
+              <label htmlFor="exampleFormControlTextarea1">Private message:</label>
               
-              <input class="form-control" id="inputName" placeholder="(e.g. Breaded Chicken Steak)" 
+              <input class="form-control" id="inputName" placeholder="(e.g. Hey saw your post...)"
               value={this.state.message} onChange={this.handleMessageChange.bind(this)}/>
             </div>
           </form>

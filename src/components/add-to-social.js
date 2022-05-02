@@ -72,7 +72,7 @@ export default class AddToSocial extends Component {
                     replies: []
                   });
             });
-            sleep(100);
+            sleep(750);
             setTimeout(function(){
               window.location.reload(); //refresh page
             });

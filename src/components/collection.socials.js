@@ -7,7 +7,7 @@ export default class SocialCollection extends Component {
   render() {
  
     const posts = this.props.posts;
-    
+    console.log(posts)
     
       return (
         <>

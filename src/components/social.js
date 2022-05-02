@@ -33,7 +33,7 @@ export default class Social extends Component {
                 axios.post("https://my-food-saver.herokuapp.com/api/Social_posts/load_posts", {ID: res.data._id}).then(res => {
                   
                   this.setState({ posts: res.data});
-                  
+                  console.log(res.data)
                   this.setState({ isLoading: false });
                   
                    });

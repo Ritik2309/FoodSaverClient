@@ -9,29 +9,32 @@ import RemovePost from './remove-post';
 export default class SocialPanelBox extends Component {
   constructor(props) {
     super(props);
-    this.state= {Post: this.props.posts}
+    this.state={postID: this.props.posts._id}
+  }
+
+  componentDidMount() {
+      
   }
 
   render() {
-    
-    
-    if (this.Post.socialPost.imageLink === null){
-      this.Post.socialPost.imageLink = "/images/NO-IMAGE.PNG";
+    const postID = this.state.postID
+    console.log(postID)
+    const Post = this.props.posts;
+    if (Post.socialPost.imageLink === null){
+      Post.socialPost.imageLink = "/images/NO-IMAGE.PNG";
     }
-    if (this.Post.socialPost.location === null){
-      this.Post.socialPost.location = ("location not selected");
+    if (Post.socialPost.location === null){
+      Post.socialPost.location("location not selected");
     }
     
     return (     
         <div class="card">
-          
-                <img src={this.Post.socialPost.imageLink} width={400} height={400} class="card-img-top"/>
-                <h5 class=" card-text"> {this.Post.socialPost.username} {this.Post.socialPost.entryDate}  </h5>
-                <p >Post: <p class="card-title" style={{fontWeight: 'bold'}}>{this.Post.socialPost.postMessage}</p>  </p>
-                <p >Suggested meet up Location: <p class="card-title" style={{fontWeight: 'bold'}}>{this.Post.socialPost.location}</p></p>
+                <img src={Post.socialPost.imageLink} width={400} height={400} class="card-img-top"/>
+                <h5 class=" card-text"> {Post.socialPost.username} {Post.socialPost.entryDate}  </h5>
+                <p >Post: <p class="card-title" style={{fontWeight: 'bold'}}>{Post.socialPost.postMessage}</p>  </p>
+                <p >Suggested meet up Location: <p class="card-title" style={{fontWeight: 'bold'}}>{Post.socialPost.location}</p></p>
                 
                 <div class="modal fade" id="send-DM" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
-                  
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -41,18 +44,18 @@ export default class SocialPanelBox extends Component {
                         </button>
                       </div>
                       <div class="modal-body">
-                      <DM post={this.Post}/>
+                      
                       </div>
                     </div>
                   </div>
                 </div>
                 <div> 
-                  {(!this.Post.userID) && // for only allowing users to DM others and not themselves from their own posts
+                  {(!Post.userID) && // for only allowing a user to send others a DM and not themselves
                   <button class="mx-3 btn btn-success btn-sm"  data-toggle="modal" data-target="#send-DM">
-                    Send DM
-                  </button>
+                    Send DM 
+                  </button>  && <DM postID={Post._id}/>
                   }
-                 
+
                 
                 </div>
                 
@@ -61,8 +64,11 @@ export default class SocialPanelBox extends Component {
                 <br></br>
                 <RemovePost post={Post}/>
                 
+                
+                
+                
           <h5 class="card-title"> Replies: </h5>
-          {this.Post.socialPost.replies.map((data, index) => {
+          {Post.socialPost.replies.map((data, index) => {
               if (data) {
                 return (
                   <>
