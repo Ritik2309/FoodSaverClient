@@ -10,6 +10,7 @@ export default class DMPanelBox extends Component {
   constructor(props) {
     super(props);
     this.state = { DMid : undefined};
+    this.blockUser=this.blockUser.bind(this);
   }
 
   blockUser(){
