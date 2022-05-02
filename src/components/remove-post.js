@@ -35,11 +35,11 @@ export default class RemovePost extends Component {
   submit(){
             axios.post("https://my-food-saver.herokuapp.com/api/Social_posts/remove_post", {
               ID: this.state.post._id
-            });
-            sleep(100)
-            setTimeout(function(){
-              window.location.reload(); //refresh page
-            });
+            }).then(()=>{
+              setTimeout(function(){
+                     window.location.reload(); //refresh page
+                   });
+              });
         }
     
 

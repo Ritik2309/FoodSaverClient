@@ -176,12 +176,14 @@ export default class AddToButton extends Component {
                             nutrients: nutrients,
                             dateEaten: getTodaysDate(),
                             ID: userIDcode
-                            }); 
+                            }).then(()=>{
+                                setTimeout(function(){
+                                       window.location.reload(); //refresh page
+                                     });
+                                }); 
                     });
 
-                    setTimeout(function(){
-                        window.location.reload(); //refresh page
-                    });
+                    
                 }else{
                     $('#alert-placeholder2').html("<div class='alert alert-danger' role='alert'>"
                     + "Time must be in format HH:MM (24h clock)!");

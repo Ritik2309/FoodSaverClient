@@ -26,7 +26,6 @@ function searchForRecipes(recipes, title){
 }
 
 
-
 export default class RecipeSearch extends Component {
   constructor(props) {
     super(props);

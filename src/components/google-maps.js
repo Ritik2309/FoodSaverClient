@@ -183,13 +183,10 @@ class MapContainer extends Component {
         })
     };
     submit(){
-        console.log(this.state.address)
         setLocationStorage(this.state.address)
-        
     }
 
     render() {
-    
         const AsyncMap = withScriptjs(
             withGoogleMap(
                 props => (
@@ -265,5 +262,4 @@ class MapContainer extends Component {
     }
 
 }
-
 export default MapContainer;

@@ -70,20 +70,17 @@ export default class AddToSocial extends Component {
                     imageLink: this.state.imageLink,
                     location: this.state.location,
                     replies: []
-                  });
+                  }).then(()=>{
+                    setTimeout(function(){
+                           window.location.reload(); //refresh page
+                         });
+                    });
             });
-            sleep(750);
-            setTimeout(function(){
-              window.location.reload(); //refresh page
-            });
-          
+            
         }
     
-        selectImage(){
-
-        }
-        handleButtonClicked() {
-        }
+        selectImage(){}
+        handleButtonClicked(){}
 
   render() {
 

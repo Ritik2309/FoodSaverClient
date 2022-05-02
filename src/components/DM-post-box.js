@@ -22,13 +22,13 @@ export default class DMPanelBox extends Component {
             axios.post('https://my-food-saver.herokuapp.com/api/blockedUsers/block_user',{
               ID: userID,
               DMid: this.state.DMid,
-            })
-            console.log('block user req sent')
+            }).then(()=>{
+              setTimeout(function(){
+                     window.location.reload(); //refresh page
+                   });
+              });
         });
-        // sleep(200)
-        // setTimeout(function(){
-        //   window.location.reload(); //refresh page
-        // });
+        
   }
 
 

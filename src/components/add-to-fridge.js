@@ -53,11 +53,12 @@ export default class AddToFridge extends Component {
                   expiryDate: getExpiryDate(this.state.expiryInDays),
                   foodType: this.state.foodType, 
                   ID: userIDcode
-                });
+                }).then(()=>{
+                  setTimeout(function(){
+                         window.location.reload(); //refresh page
+                       });
+                  });
             });
-        setTimeout(function(){
-          window.location.reload(); //refresh page
-        });
       }else{
         $('#alert-placeholder').html("<div class='alert alert-danger' role='alert'>"
         + "Expiry in days in must be an integer value!");

@@ -77,12 +77,13 @@ export default class ReplyToPost extends Component {
                     entryDate: getDateTime().toString(),
                     replyMessage: this.state.replyMessage
                     }
-                  }) .then(res => {console.log(res)});
+                  }).then(()=>{
+                    setTimeout(function(){
+                           window.location.reload(); //refresh page
+                         });
+                    });
             });
-            sleep(100)
-            setTimeout(function(){
-              window.location.reload(); //refresh page
-            });
+            
         }
     
 

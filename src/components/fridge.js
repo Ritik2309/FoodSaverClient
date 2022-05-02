@@ -47,6 +47,7 @@ export default class Fridge extends Component {
       });
     }
   }
+
   render() {
     const isLoading = this.state.isLoading;
     const loggedIn = this.state.loggedIn;
@@ -55,7 +56,6 @@ export default class Fridge extends Component {
         return <img class="rounded mx-auto d-block" src="/images/LOADING.gif"/>;
     }
 
-    
     return (
         <div class="container-fluid">
         <br />
