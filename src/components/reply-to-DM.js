@@ -45,7 +45,7 @@ export default class ReplyToDM extends Component {
     console.log(message)
         this.state = {DMid: message._id,
                     username: undefined,
-                    message: "example message",
+                    message: "",
                     entryDate: getDateTime() 
                     };
 

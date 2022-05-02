@@ -42,7 +42,7 @@ export default class senddm extends Component {
                     message: "example message",
                     entryDate: getDateTime() 
                     };
-
+        this.submit = this.submit.bind(this);            
         this.handleMessageChange = this.handleMessageChange.bind(this);
         console.log('sendDM constructor')
     }
@@ -52,7 +52,7 @@ export default class senddm extends Component {
         this.setState({message: event.target.value});
     }
  
-    onSubmit(){
+    submit(){
         console.log('snet DM')
         const postID = this.state.postID
         const message = this.state.message
@@ -92,7 +92,7 @@ export default class senddm extends Component {
               value={this.state.message} onChange={this.handleMessageChange.bind(this)}/>
             </div>
           </form>
-          <button onClick={this.onSubmit(this)} class="mx-3 btn btn-success float-right">Send DM</button>
+          <button onClick={this.submit} class="mx-3 btn btn-success float-right">Send DM</button>
           <br />
         </ div>
       ); 
