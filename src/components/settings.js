@@ -5,35 +5,72 @@ import Success from "./success";
 import $ from 'jquery';
 import {integerCheck} from "../utils/validation";
 import checkLogin from "../utils/checkLogin";
-import blockedUsersPostBox from "./blockedUsers-post-box"
+import BlockedUsersPostBox from "./blockedUsers-post-box"
+
+
 
 export default class Settings extends Component {
   constructor(props) {
     super(props);
     this.state = {loggedIn: false
-                , userID: undefined
+                , userID: ""
                 , userDeleted: false
                 , userDataDeleted: false
                 , limitChanged: false
                 , kcalInput: ""
+                , blockedUsersList: undefined,
+                blockedUserID: []
               };
     
     this.setCalorieLimit = this.setCalorieLimit.bind(this);
     this.deleteUser = this.deleteUser.bind(this);
     this.deleteUserData = this.deleteUserData.bind(this);
-  }
+    this.unblock = this.unblock.bind(this)
+    this.getBlockedList = this.getBlockedList.bind(this)
+ 
+}
 
   async componentDidMount() {
     let token = checkLogin();
-    if (!(token == null)) {await axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
+    if (!(token == null)) { 
+      await axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
         .then(res => {
             this.setState({userID: res.data._id});
+            console.log( res.data._id)
+            console.log('set userID')
+            const userID = res.data._id
+             axios.post("https://my-food-saver.herokuapp.com/api/blockedUsers/load_blockedusers", {ID:userID})
+              .then(blockedUsersRes=>{
+                console.log(blockedUsersRes.data[0])
+                console.log(blockedUsersRes)
+                console.log('got blocked users')
+                this.setState({blockedUsersList: blockedUsersRes.data[0].blockedUsers})
+              })
+            
         });
-
-    await this.setState({ loggedIn: true });
+        await this.setState({ loggedIn: true });
     }
 
+
   }
+  async getBlockedList(){
+    let token = checkLogin();
+     axios.post('https://my-food-saver.herokuapp.com/api/getUser/getUserData',{token: token})
+        .then(res => {
+          console.log('id:', res.data._id)
+          axios.post("https://my-food-saver.herokuapp.com/api/blockedUsers/load_blockedusers", {ID:res.data._id})
+            .then(blockedUsersRes=>{
+            console.log(blockedUsersRes.data[0].blockedUsers)
+            console.log('got blocked users')
+            this.setState({blockedUsersList: blockedUsersRes.data[0].blockedUsers})
+          });  
+        });
+   }
+
+
+  async unblock(blockedUserID){
+    await axios.post("https://my-food-saver.herokuapp.com/api/blockedUsers/unblockUser", {ID:this.state.userID,blockedUserObjectID: blockedUserID});          
+   }
 
  async deleteUserData(){
     await axios.post('https://my-food-saver.herokuapp.com/api/getUser/delete_user_data',{ID: this.state.userID})
@@ -58,8 +95,14 @@ export default class Settings extends Component {
   render() {
     $('#kcal-limit-modal').find('#mutableInput').on('input', 
     () => {this.setState.kcalInput = $('#kcal-limit-modal').find('#mutableInput').val();});
-
-    return (
+    console.log(this.state.userID)
+    
+    console.log('test')
+    
+    console.log( this.state.blockedUsersList)
+    
+    
+      return (
         <div class="container-fluid">
           
           <h3>Settings</h3>
@@ -83,7 +126,7 @@ export default class Settings extends Component {
               <Redirect to={"/logout"}/>
               }
               <br/>
-              <button type="button" class="btn btn-dark btn-block" data-toggle="modal" data-target="#blockedUsers-modal" >View blocked users</button>
+              <button onClick={this.getBlockedList} type="button" class="btn btn-dark btn-block" data-toggle="modal" data-target="#blockedUsers-modal" >View blocked users</button>
 
                 <div class="modal fade" id="blockedUsers-modal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
                   <div class="modal-dialog" role="document">
@@ -95,8 +138,30 @@ export default class Settings extends Component {
                               </button>
                           </div>
                           <div class="modal-body" id="modalBody">
-
-                              <blockedUsersPostBox/>
+                          <div class="list-group">
+                          <div id="alert-placeholder"/>
+                          <>
+                        
+                          {this.state.blockedUsersList?.map((data, index) => {
+                              if (data) {
+                                return (
+                                  <>
+                                  
+                                  <li class="list-group-item">
+                                  <p >Blocked User: <p class="card-title" style={{fontWeight: 'bold'}}>{data.username}</p></p>                      
+                                  <button onClick={this.unblock(data._id)}  class="mx-3 btn btn-danger float-right">Unblock User</button>
+                                  </li>
+                                    
+                                  
+                                  <br />
+                                  <br />
+                                  </>
+                                )	
+                              }
+                              return null
+                          }) }
+                          </>
+                        </div>
                           </div>
                       </div>
                   </div>
@@ -156,6 +221,8 @@ export default class Settings extends Component {
            }        
         </div>
       </div>
-    );
-  }
+    )
+
+    }
+    
 }

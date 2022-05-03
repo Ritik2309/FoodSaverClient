@@ -43,20 +43,19 @@ export default class Login extends Component {
              this.setState({
                password: "logged in",
                email: "logged in"
-              }).then(()=>{
-                setTimeout(function(){
-                       window.location.reload(); //refresh page
-                     });
-                });
+              })
             }
             else{
              this.setState({
                password: "",
                email: ""
                });
-              
            }
-        })
+        }).then(()=>{
+          setTimeout(function(){
+                 window.location.reload(); //refresh page
+               });
+          });
         
     }
 

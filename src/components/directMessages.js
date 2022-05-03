@@ -22,6 +22,7 @@ export default class directMessages extends Component {
               console.log(ID)
               axios.post('https://my-food-saver.herokuapp.com/api/directMessage/load_DMs_santized', {ID:ID})
                 .then(result=>{
+                  console.log(result)
                   this.setState({messages: result.data});
                   
                   this.setState({ isLoading: false });
