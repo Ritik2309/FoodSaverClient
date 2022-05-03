@@ -5,7 +5,7 @@ import Success from "./success";
 import $ from 'jquery';
 import {integerCheck} from "../utils/validation";
 import checkLogin from "../utils/checkLogin";
-import blockedUsers from "./blockedUsers"
+import blockedUsersPostBox from "./blockedUsers-post-box"
 
 export default class Settings extends Component {
   constructor(props) {
@@ -96,7 +96,7 @@ export default class Settings extends Component {
                           </div>
                           <div class="modal-body" id="modalBody">
 
-                              <blockedUsers/>
+                              <blockedUsersPostBox/>
                           </div>
                       </div>
                   </div>
