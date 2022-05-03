@@ -20,7 +20,7 @@ export default class directMessages extends Component {
           .then(res => {
               const ID = res.data._id
               console.log(ID)
-              axios.post('https://my-food-saver.herokuapp.com/api/directMessage/load_DMs', {ID:ID})
+              axios.post('https://my-food-saver.herokuapp.com/api/directMessage/load_DMs_santized', {ID:ID})
                 .then(result=>{
                   this.setState({messages: result.data});
                   
@@ -34,6 +34,7 @@ export default class directMessages extends Component {
 
   render() {
     const { isLoading,loggedIn,blocked, messages} = this.state;
+    console.log(messages)
     if (isLoading) {
       return <img class="rounded mx-auto d-block" src="/images/LOADING.gif"/>;
     } 
@@ -43,7 +44,7 @@ export default class directMessages extends Component {
         <br />
         <br />
         <h3> Your DMs </h3>
-        <DMCollection allMessages ={messages} />
+        <DMCollection allMessages={messages} />
         <br />
         <br />
 
