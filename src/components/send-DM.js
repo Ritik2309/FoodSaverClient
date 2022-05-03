@@ -84,7 +84,7 @@ export default class senddm extends Component {
           <form>
             <div class="form-group">
               <div id="alert-placeholder-sendDM"/>
-              <label htmlFor="exampleFormControlTextarea1">Private message:</label>
+              <label htmlFor="exampleFormControlTextarea1">Private DM:</label>
               
               <input class="form-control" id="inputName" placeholder="(e.g. Hey saw your post...)"
               value={this.state.message} onChange={this.handleMessageChange.bind(this)}/>

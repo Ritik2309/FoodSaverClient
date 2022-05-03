@@ -95,7 +95,7 @@ export default class ReplyToPost extends Component {
 
           <form>
             <div class="form-group">
-              <label htmlFor="exampleFormControlTextarea1">Enter message to reply with:</label>
+              <label htmlFor="exampleFormControlTextarea1">Enter message to reply to the Post with:</label>
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value={this.setState.replyMessage}  onChange={this.handlenewMessage.bind(this)}>
               </textarea>
             </div>
