@@ -47,8 +47,7 @@ export default class signup extends Component {
           const user = {
             name: this.state.name,
             email: this.state.email,
-            password: this.state.password,
-            calorieLimit: 2500
+            password: this.state.password
           };
       
           axios.post('https://my-food-saver.herokuapp.com/api/signup/add', user)
