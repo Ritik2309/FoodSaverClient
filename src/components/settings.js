@@ -6,6 +6,7 @@ import $ from 'jquery';
 import {integerCheck} from "../utils/validation";
 import checkLogin from "../utils/checkLogin";
 import BlockedUsersPostBox from "./blockedUsers-post-box"
+import UnblockUser from './unblockUser';
 
 
 
@@ -25,8 +26,7 @@ export default class Settings extends Component {
     this.setCalorieLimit = this.setCalorieLimit.bind(this);
     this.deleteUser = this.deleteUser.bind(this);
     this.deleteUserData = this.deleteUserData.bind(this);
-    this.unblock = this.unblock.bind(this)
-    this.getBlockedList = this.getBlockedList.bind(this)
+    this.getBlockedList = this.getBlockedList.bind(this);
  
 }
 
@@ -39,13 +39,6 @@ export default class Settings extends Component {
             console.log( res.data._id)
             console.log('set userID')
             const userID = res.data._id
-             axios.post("https://my-food-saver.herokuapp.com/api/blockedUsers/load_blockedusers", {ID:userID})
-              .then(blockedUsersRes=>{
-                console.log(blockedUsersRes.data[0])
-                console.log(blockedUsersRes)
-                console.log('got blocked users')
-                this.setState({blockedUsersList: blockedUsersRes.data[0].blockedUsers})
-              })
             
         });
         await this.setState({ loggedIn: true });
@@ -60,17 +53,15 @@ export default class Settings extends Component {
           console.log('id:', res.data._id)
           axios.post("https://my-food-saver.herokuapp.com/api/blockedUsers/load_blockedusers", {ID:res.data._id})
             .then(blockedUsersRes=>{
-            console.log(blockedUsersRes.data[0].blockedUsers)
+            console.log(blockedUsersRes.data[0])
             console.log('got blocked users')
-            this.setState({blockedUsersList: blockedUsersRes.data[0].blockedUsers})
+            if (blockedUsersRes.data[0] != null){this.setState({blockedUsersList: blockedUsersRes.data[0].blockedUsers})}
+            else {this.setState({blockedUsersList: "no blocked users"})}
           });  
         });
    }
 
 
-  async unblock(blockedUserID){
-    await axios.post("https://my-food-saver.herokuapp.com/api/blockedUsers/unblockUser", {ID:this.state.userID,blockedUserObjectID: blockedUserID});          
-   }
 
  async deleteUserData(){
     await axios.post('https://my-food-saver.herokuapp.com/api/getUser/delete_user_data',{ID: this.state.userID})
@@ -126,7 +117,7 @@ export default class Settings extends Component {
               <Redirect to={"/logout"}/>
               }
               <br/>
-              <button onClick={this.getBlockedList} type="button" class="btn btn-dark btn-block" data-toggle="modal" data-target="#blockedUsers-modal" >View blocked users</button>
+              <button onClick={this.getBlockedList} disabled={this.state.blockedUsersList == "no blocked users"} type="button" class="btn btn-dark btn-block" data-toggle="modal" data-target="#blockedUsers-modal" >View blocked users</button>
 
                 <div class="modal fade" id="blockedUsers-modal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
                   <div class="modal-dialog" role="document">
@@ -146,10 +137,10 @@ export default class Settings extends Component {
                               if (data) {
                                 return (
                                   <>
-                                  
-                                  <li class="list-group-item">
-                                  <p >Blocked User: <p class="card-title" style={{fontWeight: 'bold'}}>{data.username}</p></p>                      
-                                  <button onClick={this.unblock(data._id)}  class="mx-3 btn btn-danger float-right">Unblock User</button>
+                                 
+                                  <li key={data} class="list-group-item">
+                                    {console.log(data)}
+                                      <UnblockUser ID={this.state.userID} data={data}/>
                                   </li>
                                     
                                   

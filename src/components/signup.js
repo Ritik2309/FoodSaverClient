@@ -68,7 +68,7 @@ export default class signup extends Component {
   render() {
     return (
     <div class="bg-secondary px-4 py-4 rounded">
-      <h3>Making us <strong>your food manager.</strong></h3>
+      <h3>Making us <strong>your food saver.</strong></h3>
 
       <br/>
 

@@ -74,7 +74,7 @@ class MapContainer extends Component {
                     })
             });
         } else {
-            console.log("Geolocation broken!");
+            console.log("Oh no Geolocation is broken!");
         }
     };
 
@@ -157,28 +157,27 @@ class MapContainer extends Component {
         console.log('plc', place);
         const address = place.formatted_address,
             addressArray = place.address_components,
+            
             city = this.getCity(addressArray),
             area = this.getArea(addressArray),
             state = this.getState(addressArray),
-            latValue = place.geometry.location.lat(),
-            lngValue = place.geometry.location.lng();
+            
+            LatValues = place.geometry.location.lat(),
+            LngValues = place.geometry.location.lng();
 
-        console.log('latvalue', latValue)
-        console.log('lngValue', lngValue)
-
-        // Set these values in the state.
+        // Setting these values in the state to use later
         this.setState({
             address: (address) ? address : '',
             area: (area) ? area : '',
             city: (city) ? city : '',
             state: (state) ? state : '',
             markerPosition: {
-                lat: latValue,
-                lng: lngValue
+                lat: LatValues,
+                lng: LngValues
             },
             mapPosition: {
-                lat: latValue,
-                lng: lngValue
+                lat: LatValues,
+                lng: LngValues
             },
         })
     };
@@ -204,7 +203,7 @@ class MapContainer extends Component {
                         />
                         <InfoWindow
                             onClose={this.onInfoWindowClose}
-                            position={{ lat: (this.state.markerPosition.lat + 0.0018), lng: this.state.markerPosition.lng }}
+                            position={{ lat: (this.state.markerPosition.lat + 0.0019), lng: this.state.markerPosition.lng }}
                         >
                             <div>
                                 <span style={{ padding: 0, margin: 0 }}>{this.state.address}</span>

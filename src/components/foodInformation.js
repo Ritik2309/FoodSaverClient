@@ -22,6 +22,8 @@ export default class foodInformation extends Component {
               <tr>
                 <th scope="col">BMI</th>
                 <th scope="col">Weight status</th>
+                <th scope="col">BMI</th>
+                <th scope="col">Weight status</th>
               </tr>
             </thead>
             <tbody>
