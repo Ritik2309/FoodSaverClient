@@ -203,7 +203,7 @@ class MapContainer extends Component {
                         />
                         <InfoWindow
                             onClose={this.onInfoWindowClose}
-                            position={{ lat: (this.state.markerPosition.lat + 0.0019), lng: this.state.markerPosition.lng }}
+                            position={{ lat: (this.state.markerPosition.lat + 0.001), lng: this.state.markerPosition.lng }}
                         >
                             <div>
                                 <span style={{ padding: 0, margin: 0 }}>{this.state.address}</span>
