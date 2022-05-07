@@ -28,7 +28,7 @@ function App() {
     <Router>
 
     <Frame />
-
+    
     <Route path="/home" component={Home}/>
     <Route path="/fridge" component={Fridge}/>
     <Route path="/tracker" component={MealTracker}/>

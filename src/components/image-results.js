@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import styles from "./styling.module.css" 
-import { Link } from 'react-router-dom';
-import {setImageStorage} from "../utils/storage";
+import ImageBox from './image-box';
 
 export default class ImageResults extends Component {
   render() {  
@@ -17,22 +15,9 @@ export default class ImageResults extends Component {
                 if (data) {
                   return (
                     <>
-                          <div key={data._id} class="list-group">
-                            <li class="list-group-item">
-                            <div class="card">
-                            <img class="float-left" className={styles.recipePreviewSize} src={data.image}></img>
-                            
-                            <Link to={{
-                                pathname: "/social",
-                                image: data.image,
+                    <div key={data} class="list-group">
+                    <ImageBox data = {data}/>        
                               
-                            }}>
-                            
-                            <button class="float-right" type="submit" onClick={setImageStorage(data.image)}>Select Image</button>
-                            </Link>
-                             
-                              </div>
-                              </li>
                     </div>
                     </>
                    )	

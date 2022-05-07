@@ -10,14 +10,10 @@ export default class Social extends Component {
   constructor(props) {
     super(props);
     console.log(props)
-    if (getImage("image") === null){
-      setImageStorage('/images/NO-IMAGE.PNG')
-    }
-    if (getLocation("location") === null){
-      setLocationStorage('not selected')
-    }
-    this.state = { isLoading: true, posts: undefined, imageSelected: getImage("image"), location: getLocation("location")};
+    
+    this.state = { isLoading: true, posts: undefined, imageSelected: this.props.location.image, location: getLocation("location")};
     console.log(this.state.location)
+    console.log(this.state.image)
   }
   
   componentDidMount() {
@@ -49,7 +45,14 @@ export default class Social extends Component {
     console.log(imageSelected);
     if (isLoading) {
       return <img class="rounded mx-auto d-block" src="/images/LOADING.gif"/>;
-    } 
+    }
+    if (getImage("image") === null){
+      setImageStorage('/images/NO-IMAGE.PNG')
+    }
+    else{
+      this.state.imageSelected = getImage("image")
+    }
+    
 
     return (
     <div class="container">

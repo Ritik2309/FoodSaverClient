@@ -3,10 +3,8 @@ import axios from "axios";
 import styles from "./styling.module.css"
 import checkLogin from '../utils/checkLogin'
 import RecipeImageBar from "./recipe-image-bar";
-import sleep from '../utils/refresh';
-import { getFromStorage} from '../utils/storage';
 import { Link } from 'react-router-dom';
-
+import {getImage} from "../utils/storage";
 
 function getDateTime() {
   var now     = new Date(); 

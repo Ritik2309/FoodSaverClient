@@ -4,7 +4,6 @@ import axios from "axios";
 import ImageSearchBar from './recipe-image-bar';
 import ImageResults from './image-results';
 
-//query functions for recipe database handmade here as DB incorrectly formatted
 
 function searchForRecipes(recipes, title){
   var matches = [];
