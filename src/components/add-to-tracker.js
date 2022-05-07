@@ -25,12 +25,12 @@ export default class AddToTracker extends Component {
     this.state = {
         name: undefined, 
         timeEaten: undefined, 
-        calories: 0, 
-        carbohydrateContent: 0,
-        fatContent: 0, 
-        fiberContent: 0,
-        proteinContent: 0, 
-        saturatedFatContent: 0,
+        calories: '', 
+        carbohydrateContent: '',
+        fatContent: '', 
+        fiberContent: '',
+        proteinContent: '', 
+        saturatedFatContent: '',
         dateEaten: this.props.dateBeingViewed,
         diet: undefined
     };
@@ -98,7 +98,7 @@ export default class AddToTracker extends Component {
 
               if ((parseInt(nutrients.calories.slice(0, -2)) + getTodaysCalories(this.state.diet)) > calorieLimit){
                 $('#alert-placeholder').html("<div class='alert alert-warning' role='alert'>"
-                + "Don't eat that, you'll exceed your daily calorie limit!</div>");
+                + "Don't eat that, you'll exceed your daily calorie limit! (update limit to add meal)</div>");
                 withinLimit = false;
              }
             }); 

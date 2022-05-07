@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import {integerCheck, tfTimeCheck} from "../utils/validation";
 import $ from 'jquery'
 import axios from 'axios';
 import checkLogin from '../utils/checkLogin';

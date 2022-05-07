@@ -56,7 +56,7 @@ export default class Settings extends Component {
             console.log(blockedUsersRes.data[0])
             console.log('got blocked users')
             if (blockedUsersRes.data[0] != null){this.setState({blockedUsersList: blockedUsersRes.data[0].blockedUsers})}
-            else {this.setState({blockedUsersList: "no blocked users"})}
+            else {this.setState({blockedUsersList: null})}
           });  
         });
    }
@@ -117,7 +117,7 @@ export default class Settings extends Component {
               <Redirect to={"/logout"}/>
               }
               <br/>
-              <button onClick={this.getBlockedList} disabled={this.state.blockedUsersList == "no blocked users"} type="button" class="btn btn-dark btn-block" data-toggle="modal" data-target="#blockedUsers-modal" >View blocked users</button>
+              <button onClick={this.getBlockedList} disabled={(this.state.blockedUsersList === 'no blocked users')} type="button" class="btn btn-dark btn-block" data-toggle="modal" data-target="#blockedUsers-modal" >View blocked users</button>
 
                 <div class="modal fade" id="blockedUsers-modal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
                   <div class="modal-dialog" role="document">
@@ -132,7 +132,7 @@ export default class Settings extends Component {
                           <div class="list-group">
                           <div id="alert-placeholder"/>
                           <>
-                        
+                          
                           {this.state.blockedUsersList?.map((data, index) => {
                               if (data) {
                                 return (
@@ -140,7 +140,7 @@ export default class Settings extends Component {
                                  
                                   <li key={data} class="list-group-item">
                                     {console.log(data)}
-                                      <UnblockUser ID={this.state.userID} data={data}/>
+                                      <UnblockUser userID={this.state.userID} data={data}/>
                                   </li>
                                     
                                   
@@ -149,7 +149,7 @@ export default class Settings extends Component {
                                   </>
                                 )	
                               }
-                              return null
+                              else return null
                           }) }
                           </>
                         </div>
