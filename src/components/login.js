@@ -47,8 +47,8 @@ export default class Login extends Component {
             }
             else{
              this.setState({
-               password: "",
-               email: ""
+               password: "login failed! try again",
+               email: "login failed! try again"
                });
            }
         }).then(()=>{

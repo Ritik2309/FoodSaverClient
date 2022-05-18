@@ -202,10 +202,12 @@ export default class AddToButton extends Component {
                         foodType: "Other", 
                         ID: userIDcode,
                         });
-                    });
-                setTimeout(function(){
-                    window.location.reload(); //to refresh page
-                });
+                        console.log(this.state.food.title)
+                    }).then(()=>{
+                                setTimeout(function(){
+                                       window.location.reload(); //refresh page
+                                     });
+                                }); 
             }else{
                 $('#alert-placeholder2').html("<div class='alert alert-danger' role='alert'>"
                     + "Days till expiry must be an integer!");
